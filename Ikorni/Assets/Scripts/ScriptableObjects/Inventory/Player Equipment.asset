@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbac3a9b599480646a7270b5587681c7, type: 3}
+  m_Name: Player Equipment
+  m_EditorClassIdentifier: 
+  database: {fileID: 11400000, guid: 2c604528313793c46be2a7b9428758fc, type: 2}
+  playerData: {fileID: 11400000, guid: ebde542c81312344ca6238666b80611e, type: 2}
+  container:
+    items:
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: MoltenNut
+        ID: 0
+      amount: 9
+      ID: 0
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}

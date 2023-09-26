@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51139acda7554044895e52dafe285133, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  speed: 5
+  health: 5
+  maxHealth: 5
+  weapon: {fileID: 0}
+  buffs: []
+  defensePercentage: 0
+  resistanceBonus: []
+  equipmentInventory: {fileID: 11400000, guid: 25fca23d2c2317543a64914e2641f235, type: 2}
+  affectedSlots: []

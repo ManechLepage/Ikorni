@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263e631ed8cc1eb4a94b3e2ae5151937, type: 3}
+  m_Name: MoltenNut
+  m_EditorClassIdentifier: 
+  ID: 0
+  uiDisplay: {fileID: 8334651344603559088, guid: 19eddc46ac4cf1e4998c0ca09176bde5, type: 3}
+  type: 1
+  itemName: Molten Nut
+  isStackable: 1
+  buffs: []
+  resistance:
+  - damageType: 2
+    value: 15
+  description: '-15% *fire* damage taken.
+
+    *Stackable (+5% per stack)*'
+  richText:
+  - text: fire
+    color: 2
+    isBold: 0
+  - text: Stackable (+5% per stack)
+    color: 1
+    isBold: 1
