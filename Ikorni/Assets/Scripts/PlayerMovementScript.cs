@@ -5,7 +5,11 @@ using UnityEngine;
 public class PlayerMovementScript : MonoBehaviour
 {
     Rigidbody2D body;
-
+    private float activeMoveSpeed;
+    public float dashSpeed;
+    public float dashLenght = .5f, dashCooldown = 1f;
+    private float dashCounter;
+    private float dashCoolCounter;
     float horizontal;
     float vertical;
     float moveLimiter = 0.7f;
@@ -17,32 +21,52 @@ public class PlayerMovementScript : MonoBehaviour
     void Start ()
     {
         body = GetComponent<Rigidbody2D>(); 
+        activeMoveSpeed = runSpeed;
         }
 
     void Update ()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical"); 
+             if(Input.GetKeyDown(KeyCode.Mouse1)){
+        Debug.Log("sapce");
+        if(dashCoolCounter <=0 && dashCounter <=0){
+            Debug.Log("dash");
+            // activeMoveSpeed = dashSpeed;
+            // dashCounter = dashLenght;
+            body.velocity *= new Vector2(dashSpeed, dashSpeed);
+        }
+    }
+    if(dashCounter > 0){
+        dashCounter -= Time.deltaTime;
+        if(dashCounter <= 0){
+            activeMoveSpeed = runSpeed;
+            dashCoolCounter = dashCooldown;
+        }
+    }
+    if (dashCoolCounter > 0){
+        dashCoolCounter -= Time.deltaTime;
+    }
     }
 
     private void FixedUpdate()
 {
+    horizontal = Input.GetAxisRaw("Horizontal");
+    vertical = Input.GetAxisRaw("Vertical");
    if (horizontal != 0 && vertical != 0) // Check for diagonal movement
    {
       // limit movement speed diagonally, so you move at 70% speed
       horizontal *= moveLimiter;
       vertical *= moveLimiter;
    }
-   // Flip the character if moving left or right
-   if (horizontal > 0 && !facingRight)
-   {
-        FlipCharacter();
-    }
-    else if (horizontal < 0 && facingRight)
-    {
-        FlipCharacter();
-    }
-    body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+   if (horizontal < 0 && facingRight){
+    FlipCharacter();
+   }
+    if (horizontal > 0 && !facingRight){
+    FlipCharacter();
+   }
+    body.velocity = new Vector2(horizontal, vertical) * activeMoveSpeed;
+
+
+
 }
 
 private void FlipCharacter()
@@ -52,4 +76,6 @@ private void FlipCharacter()
         scale.x *= -1;
         transform.localScale = scale;
    }
+
+
 }
