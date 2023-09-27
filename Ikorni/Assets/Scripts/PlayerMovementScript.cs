@@ -13,7 +13,7 @@ public class PlayerMovementScript : MonoBehaviour
     float horizontal;
     float vertical;
     float moveLimiter = 0.7f;
-    private bool facingRight = true; // Flag to track the direction the character is facing
+    private bool facingLeft = true; // Flag to track the direction the character is facing
 
 
     public float runSpeed = 20.0f;
@@ -57,10 +57,10 @@ public class PlayerMovementScript : MonoBehaviour
       horizontal *= moveLimiter;
       vertical *= moveLimiter;
    }
-   if (horizontal < 0 && facingRight){
+   if (horizontal > 0 && facingLeft){
     FlipCharacter();
    }
-    if (horizontal > 0 && !facingRight){
+    if (horizontal < 0 && !facingLeft){
     FlipCharacter();
    }
     body.velocity = new Vector2(horizontal, vertical) * activeMoveSpeed;
@@ -71,7 +71,7 @@ public class PlayerMovementScript : MonoBehaviour
 
 private void FlipCharacter()
    {
-        facingRight = !facingRight;
+        facingLeft = !facingLeft;
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
