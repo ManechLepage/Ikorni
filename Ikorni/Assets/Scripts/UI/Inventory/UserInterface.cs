@@ -54,26 +54,6 @@ public abstract class UserInterface : MonoBehaviour
         }
     }
 
-    public bool canWeapon()
-    {
-
-        for (int i = 0; i < inventory.container.items.Length; i++)
-        {
-            if (inventory.container.items[i].item.ID >= 0)
-            {
-                if (inventory.database.GetItem[inventory.container.items[i].item.ID] is Weapon)
-                {
-                    Debug.Log("You already have a weapon");
-                    return false;
-                }
-            }
-            
-        }
-
-        Debug.Log("Weapon equiped");
-        return true;
-    }
-
     protected void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action) 
     {
         EventTrigger trigger = obj.GetComponent<EventTrigger>();
@@ -117,23 +97,7 @@ public abstract class UserInterface : MonoBehaviour
 
     public void OnDragEnd(GameObject obj)
     {
-        if (player.mouseItem.hoverObj)
-        {
-            if (player.mouseItem.hoverItem.parent is EquipmentInterface || itemsDisplayed[obj].parent is EquipmentInterface)
-            {
-                if (itemsDisplayed[obj].item.ID >= 0)
-                {
-                    if (inventory.database.GetItem[itemsDisplayed[obj].item.ID] is Weapon)
-                    {
-                        if (inventory.playerData.weapon != null && itemsDisplayed[obj].parent is EquipmentInterface)
-                        {
-                            MoveItem(obj);
-                        }
-                    }
-                }
-            }
-            MoveItem(obj);
-        }
+        MoveItem(obj);
 
         Destroy(player.mouseItem.obj);
         player.mouseItem.item = null;
@@ -168,6 +132,31 @@ public abstract class UserInterface : MonoBehaviour
                 gameObject.transform.parent.GetChild(2).GetComponent<ItemPreviewInterface>().ClearItemPreview();
             }
         }
+    }
+    public bool canWeapon()
+    {
+
+        for (int i = 0; i < inventory.container.items.Length; i++)
+        {
+            if (inventory.container.items[i].item.ID >= 0)
+            {
+                if (inventory.database.GetItem[inventory.container.items[i].item.ID] is Weapon)
+                {
+                    Debug.Log("You already have a weapon");
+                    return false;
+                }
+            }
+            
+        }
+
+        Debug.Log("Weapon equiped");
+        return true;
+    }
+
+
+    public bool checkForWeapons()
+    {
+        return false;
     }
 }
 
