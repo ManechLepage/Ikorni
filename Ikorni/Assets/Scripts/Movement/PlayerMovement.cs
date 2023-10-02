@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rigidbody2D;
     private Vector3 moveDir;
@@ -44,16 +44,17 @@ public class CharacterController : MonoBehaviour
                 }
                 moveDir = new Vector3(moveX, moveY).normalized;
                 if(Input.GetKeyDown(KeyCode.Mouse1)){
+                    Debug.Log("mouse1");
                     rollDir = moveDir;
-                    rollSpeed = 250f;
+                    rollSpeed = 24f;
                     state = State.Rolling;
                 }
                 break;
             case State.Rolling:
-                float rollSpeedMultiplier = 5f;
+                float rollSpeedMultiplier = 2f;
                 rollSpeed -= rollSpeed * rollSpeedMultiplier * Time.deltaTime;
 
-                float rollSpeedMinimum = 50f;
+                float rollSpeedMinimum = 20f;
                 if (rollSpeed < rollSpeedMinimum){
                     state = State.Normal;
                 }

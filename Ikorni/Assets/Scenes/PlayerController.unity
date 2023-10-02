@@ -523,7 +523,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1531934823}
   - component: {fileID: 1531934822}
-  - component: {fileID: 1531934825}
   - component: {fileID: 1531934824}
   - component: {fileID: 1531934827}
   - component: {fileID: 1531934826}
@@ -622,22 +621,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1531934825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531934821}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f789e02290819488d46eddd985c15c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashSpeed: 200
-  dashLenght: 0.2
-  dashCooldown: 1
-  runSpeed: 5
 --- !u!212 &1531934826
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -720,7 +703,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1531934821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962f63d4155230b4a8fa9485e5657ca4, type: 3}
+  m_Script: {fileID: 11500000, guid: 41e2c4fe4ef02414f8eeb5c92fdd08e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
@@ -826,12 +809,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2040384187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b0f9c376d620f54a8ad488d169f9dc8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8827dce70e3d1c24faa616afde474966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   followObject: {fileID: 1531934821}
   followOffset: {x: 4, y: 3}
-  speed: 1
+  speed: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
