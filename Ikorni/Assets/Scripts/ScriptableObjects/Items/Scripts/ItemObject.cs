@@ -36,7 +36,6 @@ public abstract class ItemObject : ScriptableObject
     [Header("Buffs & Resistances")]
     public ItemBuff[] buffs;
     public ResistanceBuff[] resistance;
-    // public List<
     
     [Space]
     [Header("Description")]
@@ -82,6 +81,7 @@ public class ItemBuff
 {
     public Attribute attribute;
     public int value;
+    public int stackValue;
 }
 
 [System.Serializable]
@@ -89,4 +89,5 @@ public class ResistanceBuff
 {
     public DamageType damageType;
     public int value;
+    public int stackValue;
 }
