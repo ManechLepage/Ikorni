@@ -13,7 +13,8 @@ public enum Attribute
 {
     Speed,
     MaxHealth,
-    Defense
+    Defense,
+    Damage
 }
 
 public enum DamageType

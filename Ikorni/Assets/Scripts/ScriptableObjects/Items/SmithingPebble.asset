@@ -10,26 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 263e631ed8cc1eb4a94b3e2ae5151937, type: 3}
-  m_Name: GoldenNut
+  m_Name: SmithingPebble
   m_EditorClassIdentifier: 
-  ID: 2
+  ID: 0
   uiDisplay: {fileID: 0}
-  type: 1
-  itemName: Golden Nut
+  type: 0
+  itemName: Smithing Weapon
   isStackable: 1
   buffs:
-  - attribute: 1
-    value: 15
+  - attribute: 0
+    value: 0
     stackValue: 0
-  resistance:
-  - damageType: 2
-    value: 15
-    stackValue: 5
-  - damageType: 3
-    value: 20
-    stackValue: 7
-  description: The *nut* of the nuts
-  richText:
-  - text: nut
-    color: 2
-    isBold: 0
+  resistance: []
+  description: 
+  richText: []

@@ -97,9 +97,11 @@ public abstract class UserInterface : MonoBehaviour
 
     public void OnDragEnd(GameObject obj)
     {
-        MoveItem(obj);
-
         Destroy(player.mouseItem.obj);
+        if (player.mouseItem.hoverObj != null)
+        {
+            MoveItem(obj);
+        }
         player.mouseItem.item = null;
         player.mouseItem.isHoldingObj = false;
     }
