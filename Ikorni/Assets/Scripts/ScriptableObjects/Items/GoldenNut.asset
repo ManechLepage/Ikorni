@@ -20,11 +20,14 @@ MonoBehaviour:
   buffs:
   - attribute: 1
     value: 15
+    stackValue: 0
   resistance:
   - damageType: 2
     value: 15
+    stackValue: 5
   - damageType: 3
     value: 20
+    stackValue: 7
   description: The *nut* of the nuts
   richText:
   - text: nut

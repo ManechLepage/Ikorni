@@ -70,7 +70,11 @@ public class PlayerData : ScriptableObject
                 ResistanceBuff[] itemResistanceBonus = equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID].resistance;
                 for (int j = 0; j < itemResistanceBonus.Length; j++)
                 {
-                    resistanceBonus.Add(itemResistanceBonus[j]);
+                    ResistanceBuff buff = new ResistanceBuff();
+                    buff.damageType = itemResistanceBonus[j].damageType;
+                    buff.value = itemResistanceBonus[j].value + itemResistanceBonus[j].stackValue * equipmentInventory.container.items[i].amount;
+                    buff.stackValue = -1;
+                    resistanceBonus.Add(buff);
                 }
             }
             
