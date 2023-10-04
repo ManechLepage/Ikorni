@@ -2,11 +2,13 @@ using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public MouseItem mouseItem = new MouseItem();
     public InventoryObject inventory;
+    public bool isInMenu;
+    public GameObject canvas;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,10 +23,21 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    public void CollideTree()
+    {
+        canvas.SetActive(true);
+        isInMenu = true;
+    }
     private void OnApplicationQuit()
     {
         // Clear inventory on application quit
         // inventory.container.Clear();
+    }
+    public void AcceptButtonPressed(){
+         SceneManager.LoadScene("TutorialTree", LoadSceneMode.Single);
+    }
+    public void DeclineButtonPressed(){
+        canvas.SetActive(false);
+        isInMenu = false;
     }
 }
