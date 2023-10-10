@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private Vector3 moveDir;
     public float moveSpeed = 10f;
+    public float dashCooldown = 3f;
     private Vector3 rollDir;
+    private bool canDash = true;
     private float rollSpeed;
     private enum State{
         Normal,
@@ -44,10 +46,15 @@ public class PlayerMovement : MonoBehaviour
                 }
                 moveDir = new Vector3(moveX, moveY).normalized;
                 if(Input.GetKeyDown(KeyCode.Mouse1)){
-                    Debug.Log("mouse1");
-                    rollDir = moveDir;
-                    rollSpeed = 24f;
-                    state = State.Rolling;
+                    if(canDash == true){
+                        Debug.Log("mouse1");
+                        rollDir = moveDir;
+                        rollSpeed = 24f;
+                        state = State.Rolling;
+                        canDash = false;
+                        StartCoroutine(DashTimer());
+                    }
+                    
                 }
                 break;
             case State.Rolling:
@@ -61,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
                 break;
             }
     }
+    private IEnumerator DashTimer() { yield return new WaitForSeconds(5f); canDash = true; }
+    
     void FixedUpdate(){
         switch (state) {
             case State.Normal:
