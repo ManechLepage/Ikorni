@@ -17,14 +17,6 @@ public enum Attribute
     Damage
 }
 
-public enum DamageType
-{
-    Melee,
-    Range,
-    Fire,
-    Poison
-}
-
 public abstract class ItemObject : ScriptableObject
 {
     [Header("Item Stats")]
@@ -34,15 +26,19 @@ public abstract class ItemObject : ScriptableObject
     public string itemName;
     public bool isStackable;
     
-    [Header("Buffs & Resistances")]
+    [Header("Buffs")]
     public ItemBuff[] buffs;
-    public ResistanceBuff[] resistance;
+
+    [Header("Enchantments")]
+    public Enchantment[] enchantments;
     
     [Space]
     [Header("Description")]
     [TextArea(15, 20)]
     public string description;
     public List<RichText> richText = new List<RichText>();
+
+    public CustomItemEffect customItemEffect;
 }
 
 [System.Serializable]
@@ -85,10 +81,21 @@ public class ItemBuff
     public int stackValue;
 }
 
-[System.Serializable]
-public class ResistanceBuff
+public enum EnchantmentRegionType
 {
-    public DamageType damageType;
+    All,
+    NeighboringWithDiagonal,
+    NeighboringWithoutDiagonal,
+    AllRight,
+    AllLeft,
+    AllUp,
+    AllDown
+}
+
+[System.Serializable]
+public class Enchantment
+{
     public int value;
-    public int stackValue;
+    public EnchantmentRegionType regionType;
+    public List<Vector2> enchantmentRange = new List<Vector2>();
 }

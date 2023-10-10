@@ -1071,6 +1071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: c26562b0bda26ba44b2376b0d466547e, type: 2}
+  isInMenu: 0
+  canvas: {fileID: 0}
 --- !u!4 &1617481599
 Transform:
   m_ObjectHideFlags: 0
@@ -1225,8 +1227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -404, y: 0}
-  m_SizeDelta: {x: 400, y: 400}
+  m_AnchoredPosition: {x: -560, y: 0}
+  m_SizeDelta: {x: 700, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2133321110
 MonoBehaviour:
@@ -1281,9 +1283,9 @@ MonoBehaviour:
   player: {fileID: 1617481598}
   inventory: {fileID: 11400000, guid: 25fca23d2c2317543a64914e2641f235, type: 2}
   inventoryPrefab: {fileID: 1063185047590789561, guid: 98bb00c5823ebaa49953e20ac9702e82, type: 3}
-  INV_START: {x: -125, y: 125}
+  INV_START: {x: -250, y: 250}
   MARGIN_BETWEEN_ITEMS: {x: 125, y: 125}
-  NBR_OF_COLS: 3
+  NBR_OF_COLS: 5
 --- !u!1 &2144241516
 GameObject:
   m_ObjectHideFlags: 0

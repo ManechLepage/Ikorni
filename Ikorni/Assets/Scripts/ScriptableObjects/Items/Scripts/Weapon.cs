@@ -9,7 +9,8 @@ public class Weapon : ItemObject
     [Header("Weapon Stats")]
     public int minDamageDealt;
     public int maxDamageDealt;
-    public DamageType damageType;
+    public int critPercentage;
+    public int critMultiplierPercentage = 200;
 
     public void Awake()
     {
@@ -18,6 +19,10 @@ public class Weapon : ItemObject
 
     public int inflictDamage()
     {
+        if (Random.Range(0, 100) <= critPercentage)
+        {
+            return Random.Range(minDamageDealt, maxDamageDealt) * critMultiplierPercentage / 100;
+        }
         return Random.Range(minDamageDealt, maxDamageDealt);
     }
 }

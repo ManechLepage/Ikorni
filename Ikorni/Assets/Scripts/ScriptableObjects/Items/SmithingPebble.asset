@@ -12,15 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263e631ed8cc1eb4a94b3e2ae5151937, type: 3}
   m_Name: SmithingPebble
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 4
   uiDisplay: {fileID: 0}
-  type: 0
+  type: 1
   itemName: Smithing Weapon
   isStackable: 1
   buffs:
-  - attribute: 0
-    value: 0
-    stackValue: 0
-  resistance: []
-  description: 
-  richText: []
+  - attribute: 3
+    value: 2
+    stackValue: 1
+  - attribute: 3
+    value: 3
+    stackValue: 1
+  enchantments: []
+  description: Gives *+1 min and max damage* per right slot of the weapon.
+  richText:
+  - text: +1 min and max damage
+    color: 1
+    isBold: 0

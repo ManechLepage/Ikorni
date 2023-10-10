@@ -19,7 +19,6 @@ public class PlayerData : ScriptableObject
     [Space]
     [Header("Player Defense Stats")]
     public int defensePercentage;
-    public List<ResistanceBuff> resistanceBonus;
 
     [Space]
     [Header("Equipment Inventory")] 
@@ -30,8 +29,6 @@ public class PlayerData : ScriptableObject
     private int defaultMaxHealth;
     public void Awake()
     {
-        resistanceBonus = new List<ResistanceBuff>();
-
         defaultSpeed = speed;
         defaultHealth = health;
         defaultMaxHealth = maxHealth;
@@ -67,15 +64,15 @@ public class PlayerData : ScriptableObject
                     }
                 }
 
-                ResistanceBuff[] itemResistanceBonus = equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID].resistance;
-                for (int j = 0; j < itemResistanceBonus.Length; j++)
-                {
-                    ResistanceBuff buff = new ResistanceBuff();
-                    buff.damageType = itemResistanceBonus[j].damageType;
-                    buff.value = itemResistanceBonus[j].value + itemResistanceBonus[j].stackValue * equipmentInventory.container.items[i].amount;
-                    buff.stackValue = -1;
-                    resistanceBonus.Add(buff);
-                }
+                // ResistanceBuff[] itemResistanceBonus = equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID].resistance;
+                // for (int j = 0; j < itemResistanceBonus.Length; j++)
+                // {
+                //     ResistanceBuff buff = new ResistanceBuff();
+                //     buff.damageType = itemResistanceBonus[j].damageType;
+                //     buff.value = itemResistanceBonus[j].value + itemResistanceBonus[j].stackValue * equipmentInventory.container.items[i].amount;
+                //     buff.stackValue = -1;
+                //     resistanceBonus.Add(buff);
+                // }
             }
             
             if (equipmentInventory.container.items[i].item.ID >= 0)
@@ -101,6 +98,6 @@ public class PlayerData : ScriptableObject
         maxHealth = defaultMaxHealth;
         defensePercentage = 0;
 
-        resistanceBonus.Clear();
+        // resistanceBonus.Clear();
     }
 }

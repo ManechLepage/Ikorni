@@ -23,6 +23,78 @@ MonoBehaviour:
       ID: -1
       parent: {fileID: 0}
     - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: WoodenSword
+        ID: 1
+      amount: 7
+      ID: 1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
         Name: MoltenNut
         ID: 0
       amount: 9
@@ -33,6 +105,30 @@ MonoBehaviour:
         ID: -1
       amount: 0
       ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: 
+        ID: -1
+      amount: 0
+      ID: -1
+      parent: {fileID: 0}
+    - item:
+        Name: WoodenShuriken
+        ID: 3
+      amount: 1
+      ID: 3
       parent: {fileID: 0}
     - item:
         Name: 
