@@ -4,13 +4,14 @@ using UnityEngine;
 using TMPro;
 public class TimerScript : MonoBehaviour
 {
-    public float timeRemaining = 3f;
+    public float timeRemaining = 0f;
     public bool timerIsRunning = false;
     public TMP_Text DashTimer;
+    public bool canDash = true;
     private void Start()
     {
         // Starts the timer automatically
-        timerIsRunning = true;
+        timerIsRunning = false;
     }
     void Update()
     {
@@ -19,7 +20,8 @@ public class TimerScript : MonoBehaviour
             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                DashTimer.SetText("Dash: " + timeRemaining.ToString());
+                DashTimer.SetText("Dash: " + ((Mathf.Round(10*timeRemaining))/10).ToString());
+                canDash = false;
             }
             else
             {
@@ -27,7 +29,16 @@ public class TimerScript : MonoBehaviour
                 timeRemaining = 0;
                 timerIsRunning = false;
                 DashTimer.SetText("Dash: Ready");
+                canDash = true;
+                
             }
         }
+        if(Input.GetKeyDown(KeyCode.Mouse1)){
+            if(canDash == true){
+                timeRemaining = 3f;
+                timerIsRunning = true;
+            }
+            
+                }
     }
 }

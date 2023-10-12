@@ -68,7 +68,9 @@ public class PlayerMovement : MonoBehaviour
                 break;
             }
     }
-    private IEnumerator DashTimer() { yield return new WaitForSeconds(5f); canDash = true; }
+    private IEnumerator DashTimer() {
+        yield return new WaitForSeconds(3f); canDash = true;
+        }
     
     void FixedUpdate(){
         switch (state) {
