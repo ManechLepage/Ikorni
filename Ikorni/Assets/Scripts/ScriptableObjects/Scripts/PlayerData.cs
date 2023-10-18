@@ -1,5 +1,3 @@
-using System.Diagnostics;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +21,7 @@ public class PlayerData : ScriptableObject
     [Space]
     [Header("Equipment Inventory")] 
     public InventoryObject equipmentInventory;
+    public List<InventorySlot> weaponList;
 
     private float defaultSpeed;
     private int defaultHealth;
@@ -37,7 +36,6 @@ public class PlayerData : ScriptableObject
     public void CheckEquipment()
     {
         ResetStats();
-        bool isWeapon = false;
 
         for (int i = 0; i < equipmentInventory.container.items.Length; i++)
         {
@@ -79,15 +77,10 @@ public class PlayerData : ScriptableObject
             {
                 if (equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID] is Weapon)
                 {
-                    weapon = equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID];
-                    isWeapon = true;
+                    weaponList.Add(equipmentInventory.container.items[i]);
+                    // Debug.Log($"Added {equipmentInventory.container.items[i].item.Name} to weapon list");
                 }
             }
-        }
-
-        if (!isWeapon)
-        {
-            weapon = null;
         }
     }
 
@@ -97,6 +90,7 @@ public class PlayerData : ScriptableObject
         health = defaultHealth;
         maxHealth = defaultMaxHealth;
         defensePercentage = 0;
+        weaponList = new List<InventorySlot>();
 
         // resistanceBonus.Clear();
     }

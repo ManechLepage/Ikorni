@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("GameObjects")]
     public GameObject inventory;
+    public GameObject weaponPreview;
+
+    [Header("Scripts")]
     public Player player;
+    public WeaponPreviewInterface weaponPreviewInterface;
+
+    [Header("Variables")]
     public bool isInventoryActive;
+    [Space]
+    public Item playerWeapon;
     void Start()
     {
         
@@ -20,7 +29,23 @@ public class GameManager : MonoBehaviour
             {
                 isInventoryActive = !isInventoryActive;
                 inventory.SetActive(isInventoryActive);
+                weaponPreview.SetActive(!isInventoryActive);
+                UpdateWeaponList();
             }
         }
+        else if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            weaponPreviewInterface.MoveUp();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            weaponPreviewInterface.MoveDown();
+        }
+
+    }
+
+    public void UpdateWeaponList()
+    {
+        weaponPreviewInterface.UpdateWeaponList(player.playerData.weaponList);
     }
 }

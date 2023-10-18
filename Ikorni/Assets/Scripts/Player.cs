@@ -1,10 +1,10 @@
-using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
+    public PlayerData playerData;
     public MouseItem mouseItem = new MouseItem();
     public InventoryObject inventory;
     public bool isInMenu;
