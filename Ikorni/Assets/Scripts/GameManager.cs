@@ -41,6 +41,14 @@ public class GameManager : MonoBehaviour
         {
             weaponPreviewInterface.MoveDown();
         }
+        else if (Input.GetKeyDown("up"))
+        {
+            weaponPreviewInterface.MoveUp();
+        }
+        else if (Input.GetKeyDown("down"))
+        {
+            weaponPreviewInterface.MoveDown();
+        }
 
     }
 
