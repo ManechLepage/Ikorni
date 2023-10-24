@@ -12,5 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e49c11a7014ac489cab2f68b937aeb, type: 3}
   m_Name: Mob1
   m_EditorClassIdentifier: 
-  timeWaveGap: 0
-  bulletDamage: 0
+  timeWaveGap: 2
+  bulletDamage: 4
+  waves:
+  - rotationMultiplier: 0
+    shotRanges:
+    - angleRange: {x: 0, y: 0}
+      nbrOfBullets: 0
+      bullets: []
+      bulletIndex: 00000000
+    origin: {x: 0, y: 0}
+  - rotationMultiplier: 0
+    shotRanges:
+    - angleRange: {x: 0, y: 0}
+      nbrOfBullets: 0
+      bullets: []
+      bulletIndex: 00000000
+    - angleRange: {x: 0, y: 0}
+      nbrOfBullets: 0
+      bullets: []
+      bulletIndex: 00000000
+    origin: {x: 0, y: 0}
+  bullets:
+  - bulletType: 0
+    size: 2
+    sizeMultiplier: 1
+    speed: 2
+    speedMultiplier: 1
+    canBounce: 0
+    position: {x: 0, y: 0}

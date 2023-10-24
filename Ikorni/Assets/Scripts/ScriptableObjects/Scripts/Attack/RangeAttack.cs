@@ -1,5 +1,3 @@
-using System.Numerics;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,12 +22,11 @@ public class Wave
     public List<ShotRange> shotRanges = new List<ShotRange>();
     [HideInInspector]
     public Vector2 origin;
-    public float waveRadius;
-    public void UpdateShotRange()
+    public void UpdateShotRange(float deltaTime)
     {
         foreach (ShotRange shotRange in shotRanges)
         {
-            shotRange.UpdateBulletPositions(waveRadius, origin, float deltaTime, rotationMultiplier);
+            shotRange.UpdateBulletPositions(origin, deltaTime, rotationMultiplier);
         }
     }
 }
@@ -45,11 +42,11 @@ public class ShotRange
     [Space]
     public List<int> bulletIndex = new List<int>();
 
-    public void UpdateBulletPositions(float radius, Vector2 origin, float deltaTime, float rotationMultiplier)
+    public void UpdateBulletPositions(Vector2 origin, float deltaTime, float rotationMultiplier)
     {
         foreach (Bullet bullet in bullets)
         {
-            bullet.UpdatePosition(angleRange, nbrOfBullets, radius, origin, float deltaTime, float rotationMultiplier);
+            bullet.UpdatePosition(angleRange, nbrOfBullets, origin, deltaTime, rotationMultiplier);
         }
     }
 }
@@ -69,10 +66,10 @@ public class Bullet
 
     [HideInInspector]
     public Vector2 position;
-    public void UpdatePosition(Vector2 angle, int nbrOfBullets, float radius, Vector2 origin, float deltaTime)
+    public void UpdatePosition(Vector2 angle, int nbrOfBullets, Vector2 origin, float deltaTime, float rotationMultiplier)
     {
-        float angle = (MathF.Abs(angle.y - angle.x) / (float) nbrOfBullets) * (deltaTime * );
-        position = new Vector2(origin.x + radius * MathF.Cos(angle), origin.y + radius * MathF.Sin(angle));
+        float bullet_angle = (Mathf.Abs(angle.y - angle.x) / (float) nbrOfBullets) * (deltaTime * rotationMultiplier);
+        position = new Vector2(origin.x + (speed * speedMultiplier * deltaTime) * Mathf.Cos(bullet_angle), origin.y + (speed * speedMultiplier * deltaTime) * Mathf.Sin(bullet_angle));
     }
 }
 
