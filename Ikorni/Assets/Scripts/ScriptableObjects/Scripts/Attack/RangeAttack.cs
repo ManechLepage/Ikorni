@@ -9,8 +9,6 @@ public class RangeAttack : ScriptableObject
     public float bulletDamage;
     
     public List<Wave> waves = new List<Wave>();
-
-    public List<Bullet> bullets = new List<Bullet>();
 }
 
 [System.Serializable]
@@ -65,11 +63,12 @@ public class Bullet
     public bool canBounce;
 
     [HideInInspector]
-    public Vector2 position;
-    public void UpdatePosition(Vector2 angle, int nbrOfBullets, Vector2 origin, float deltaTime, float rotationMultiplier)
+    public Vector2 direction;
+    public void SetDirection(Vector2 angle, int nbrOfBullets, Vector2 origin, float deltaTime, float rotationMultiplier)
     {
         float bullet_angle = (Mathf.Abs(angle.y - angle.x) / (float) nbrOfBullets) * (deltaTime * rotationMultiplier);
-        position = new Vector2(origin.x + (speed * speedMultiplier * deltaTime) * Mathf.Cos(bullet_angle), origin.y + (speed * speedMultiplier * deltaTime) * Mathf.Sin(bullet_angle));
+        direction = new Vector2(speed * speedMultiplier * deltaTime * Mathf.Cos(bullet_angle), speed * speedMultiplier * deltaTime * Mathf.Sin(bullet_angle));
+        // direction = Vector3.Norm
     }
 }
 
