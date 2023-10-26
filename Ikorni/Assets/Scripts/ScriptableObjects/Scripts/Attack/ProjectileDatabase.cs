@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New database", menuName = "Attack/ProjectileDatabase")]
 public class ProjectileDatabase : ScriptableObject
 {
-    public List<Projectile> projectiles = new List<Projectile>();
+    public List<ProjectilePrefab> projectiles = new List<ProjectilePrefab>();
 }
 
 [System.Serializable]

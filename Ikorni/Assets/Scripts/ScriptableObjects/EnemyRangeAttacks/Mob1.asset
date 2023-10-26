@@ -17,27 +17,77 @@ MonoBehaviour:
   waves:
   - rotationMultiplier: 0
     shotRanges:
-    - angleRange: {x: 0, y: 0}
-      nbrOfBullets: 0
-      bullets: []
-      bulletIndex: 00000000
-    origin: {x: 0, y: 0}
+    - angleRange: {x: 0, y: 360}
+      bullets:
+      - bulletIndex: 0
+        size: 1
+        sizeMultiplier: 1
+        speed: 1
+        speedMultiplier: 1
+        canBounce: 0
+        direction: {x: 1, y: 0}
+        angle: 0
+      - bulletIndex: 0
+        size: 1
+        sizeMultiplier: 1
+        speed: 1
+        speedMultiplier: 1
+        canBounce: 0
+        direction: {x: 1, y: 0}
+        angle: 0
+      - bulletIndex: 0
+        size: 1
+        sizeMultiplier: 1
+        speed: 1
+        speedMultiplier: 1
+        canBounce: 0
+        direction: {x: 1, y: 0}
+        angle: 0
+      - bulletIndex: 0
+        size: 0
+        sizeMultiplier: 0
+        speed: 0
+        speedMultiplier: 0
+        canBounce: 0
+        direction: {x: 0, y: 0}
+        angle: 0
+    origin: {x: 3.5, y: 0.31}
   - rotationMultiplier: 0
     shotRanges:
-    - angleRange: {x: 0, y: 0}
-      nbrOfBullets: 0
-      bullets: []
-      bulletIndex: 00000000
-    - angleRange: {x: 0, y: 0}
-      nbrOfBullets: 0
-      bullets: []
-      bulletIndex: 00000000
-    origin: {x: 0, y: 0}
-  bullets:
-  - bulletType: 0
-    size: 2
-    sizeMultiplier: 1
-    speed: 2
-    speedMultiplier: 1
-    canBounce: 0
-    position: {x: 0, y: 0}
+    - angleRange: {x: 320, y: 40}
+      bullets:
+      - bulletIndex: 0
+        size: 1
+        sizeMultiplier: 1
+        speed: 1
+        speedMultiplier: 1
+        canBounce: 0
+        direction: {x: 1, y: 0}
+        angle: 0
+      - bulletIndex: 0
+        size: 1
+        sizeMultiplier: 1
+        speed: 1
+        speedMultiplier: 1
+        canBounce: 0
+        direction: {x: 1, y: 0}
+        angle: 0
+    - angleRange: {x: 140, y: 220}
+      bullets:
+      - bulletIndex: 0
+        size: 1
+        sizeMultiplier: 1
+        speed: 1
+        speedMultiplier: 1
+        canBounce: 0
+        direction: {x: 1, y: 0}
+        angle: 0
+      - bulletIndex: 0
+        size: 1
+        sizeMultiplier: 1
+        speed: 1
+        speedMultiplier: 1
+        canBounce: 0
+        direction: {x: 1, y: 0}
+        angle: 0
+    origin: {x: 3.5, y: 0.31}

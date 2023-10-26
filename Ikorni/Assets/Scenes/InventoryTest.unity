@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: aa2a2716d88910d4da15bc7c8171f622, type: 2}
-  projectileDatabase: {fileID: 0}
+  projectileDatabase: {fileID: 11400000, guid: 308168709e7094146a4832ac231c6af1, type: 2}
 --- !u!212 &1464868015
 SpriteRenderer:
   m_ObjectHideFlags: 0

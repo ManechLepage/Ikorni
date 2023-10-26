@@ -6,7 +6,7 @@ using UnityEngine;
 public class RangeAttack : ScriptableObject
 {
     public float timeWaveGap;
-    public float bulletDamage;
+    public int bulletDamage;
     
     public List<Wave> waves = new List<Wave>();
 }
@@ -20,11 +20,11 @@ public class Wave
     public List<ShotRange> shotRanges = new List<ShotRange>();
     [HideInInspector]
     public Vector2 origin;
-    public void UpdateShotRange(float deltaTime)
+    public void SetShotRange(float deltaTime)
     {
         foreach (ShotRange shotRange in shotRanges)
         {
-            shotRange.UpdateBulletPositions(origin, deltaTime, rotationMultiplier);
+            shotRange.SetBulletDirection(origin, deltaTime, rotationMultiplier);
         }
     }
 }
@@ -34,17 +34,17 @@ public class ShotRange
 {
     public Vector2 angleRange;
     [Space]
-    public int nbrOfBullets;
-    [HideInInspector]
     public List<Bullet> bullets = new List<Bullet>();
-    [Space]
-    public List<int> bulletIndex = new List<int>();
+    
+    // [HideInInspector]
+    
+    // public List<int> bulletIndex = new List<int>();
 
-    public void UpdateBulletPositions(Vector2 origin, float deltaTime, float rotationMultiplier)
+    public void SetBulletDirection(Vector2 origin, float deltaTime, float rotationMultiplier)
     {
         foreach (Bullet bullet in bullets)
         {
-            bullet.UpdatePosition(angleRange, nbrOfBullets, origin, deltaTime, rotationMultiplier);
+            bullet.SetDirection(angleRange, bullets.Count, origin, deltaTime, rotationMultiplier);
         }
     }
 }
@@ -52,7 +52,7 @@ public class ShotRange
 [System.Serializable]
 public class Bullet
 {
-    public BulletType bulletType;
+    public int bulletIndex;
     [Space]
     public float size;
     public float sizeMultiplier;
@@ -64,11 +64,13 @@ public class Bullet
 
     [HideInInspector]
     public Vector2 direction;
-    public void SetDirection(Vector2 angle, int nbrOfBullets, Vector2 origin, float deltaTime, float rotationMultiplier)
+    [HideInInspector]
+    public float angle;
+    public void SetDirection(Vector2 _angle, int nbrOfBullets, Vector2 origin, float deltaTime, float rotationMultiplier)
     {
-        float bullet_angle = (Mathf.Abs(angle.y - angle.x) / (float) nbrOfBullets) * (deltaTime * rotationMultiplier);
-        direction = new Vector2(speed * speedMultiplier * deltaTime * Mathf.Cos(bullet_angle), speed * speedMultiplier * deltaTime * Mathf.Sin(bullet_angle));
-        // direction = Vector3.Norm
+        angle = (Mathf.Abs(_angle.y - _angle.x) / (float) nbrOfBullets) * (deltaTime * rotationMultiplier);
+        direction = new Vector2(speed * speedMultiplier * deltaTime * Mathf.Cos(angle), speed * speedMultiplier * deltaTime * Mathf.Sin(angle));
+        direction = Vector3.Normalize(direction);
     }
 }
 

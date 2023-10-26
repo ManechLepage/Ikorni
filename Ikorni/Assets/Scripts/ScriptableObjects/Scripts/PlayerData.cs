@@ -11,10 +11,6 @@ public class PlayerData : ScriptableObject
     public int maxHealth;
 
     [Space]
-    [Header("Player Damage Stats")]
-    public ItemObject weapon;
-
-    [Space]
     [Header("Player Defense Stats")]
     public int defensePercentage;
 
