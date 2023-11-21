@@ -20,11 +20,11 @@ public class Wave
     public List<ShotRange> shotRanges = new List<ShotRange>();
     [HideInInspector]
     public Vector2 origin;
-    public void SetShotRange(float deltaTime)
+    public void SetShotRange()
     {
         foreach (ShotRange shotRange in shotRanges)
         {
-            shotRange.SetBulletDirection(origin, deltaTime, rotationMultiplier);
+            shotRange.SetBulletDirection(origin, rotationMultiplier);
         }
     }
 }
@@ -40,11 +40,11 @@ public class ShotRange
     
     // public List<int> bulletIndex = new List<int>();
 
-    public void SetBulletDirection(Vector2 origin, float deltaTime, float rotationMultiplier)
+    public void SetBulletDirection(Vector2 origin, float rotationMultiplier)
     {
         foreach (Bullet bullet in bullets)
         {
-            bullet.SetDirection(angleRange, bullets.Count, origin, deltaTime, rotationMultiplier);
+            bullet.SetDirection(angleRange, bullets.Count, origin, rotationMultiplier, bullets.IndexOf(bullet));
         }
     }
 }
@@ -52,9 +52,9 @@ public class ShotRange
 [System.Serializable]
 public class Bullet
 {
-    public int bulletIndex;
     [Space]
     public float size;
+    public int bulletIndex = 0;
     public float sizeMultiplier;
     [Space]
     public float speed;
@@ -66,10 +66,12 @@ public class Bullet
     public Vector2 direction;
     [HideInInspector]
     public float angle;
-    public void SetDirection(Vector2 _angle, int nbrOfBullets, Vector2 origin, float deltaTime, float rotationMultiplier)
+    public void SetDirection(Vector2 _angle, int bullets, Vector2 origin, float rotationMultiplier, int _bulletIndex)
     {
-        angle = (Mathf.Abs(_angle.y - _angle.x) / (float) nbrOfBullets) * (deltaTime * rotationMultiplier);
-        direction = new Vector2(speed * speedMultiplier * deltaTime * Mathf.Cos(angle), speed * speedMultiplier * deltaTime * Mathf.Sin(angle));
+        angle = (Mathf.Abs(_angle.y - _angle.x) / (float) bullets) * _bulletIndex + Mathf.Min(_angle.x, _angle.y);
+        // angle = (Mathf.Abs(_angle.y - _angle.x) / (float) bullets) * (deltaTime * rotationMultiplier);
+        // direction = new Vector2(speed * speedMultiplier * Mathf.Cos(angle), speed * speedMultiplier * Mathf.Sin(angle));
+        direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
         direction = Vector3.Normalize(direction);
     }
 }

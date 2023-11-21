@@ -7,6 +7,7 @@ public class RangeWeapon : MonoBehaviour
     public RangeAttack data;
     public ProjectileDatabase projectileDatabase;
     private IEnumerator waveManager;
+    public GameObject bulletParent;
 
     private int currentWaveIndex = 0;
     void Start()
@@ -39,14 +40,14 @@ public class RangeWeapon : MonoBehaviour
         Debug.Log($"Generating wave {currentWaveIndex}...", gameObject);
         
         data.waves[currentWaveIndex].origin = transform.position;
-        data.waves[currentWaveIndex].SetShotRange(Time.deltaTime);
+        data.waves[currentWaveIndex].SetShotRange();
 
         foreach (ShotRange shotRange in data.waves[currentWaveIndex].shotRanges)
         {
             foreach (Bullet bullet in shotRange.bullets)
             {
-                GameObject _bullet = Instantiate(projectileDatabase.projectiles[bullet.bulletIndex].projectile, transform.position, Quaternion.identity);
-                _bullet.transform.SetParent(transform);
+                GameObject _bullet = Instantiate(projectileDatabase.projectiles[0].projectile, transform.position, Quaternion.identity);
+                _bullet.transform.SetParent(bulletParent.transform);
                 _bullet.name = $"Wave {currentWaveIndex} | Angle {bullet.angle}";
 
                 _bullet.GetComponent<Projectile>().direction = bullet.direction;

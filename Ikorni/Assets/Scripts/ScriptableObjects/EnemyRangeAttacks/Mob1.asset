@@ -15,79 +15,79 @@ MonoBehaviour:
   timeWaveGap: 2
   bulletDamage: 4
   waves:
-  - rotationMultiplier: 0
+  - rotationMultiplier: 1
     shotRanges:
     - angleRange: {x: 0, y: 360}
       bullets:
-      - bulletIndex: 0
-        size: 1
+      - size: 1
+        bulletIndex: 0
         sizeMultiplier: 1
         speed: 1
         speedMultiplier: 1
         canBounce: 0
         direction: {x: 1, y: 0}
         angle: 0
-      - bulletIndex: 0
-        size: 1
+      - size: 1
+        bulletIndex: 1
         sizeMultiplier: 1
         speed: 1
         speedMultiplier: 1
         canBounce: 0
-        direction: {x: 1, y: 0}
-        angle: 0
-      - bulletIndex: 0
-        size: 1
+        direction: {x: -0.44807363, y: 0.89399666}
+        angle: 90
+      - size: 1
+        bulletIndex: 2
         sizeMultiplier: 1
         speed: 1
         speedMultiplier: 1
         canBounce: 0
-        direction: {x: 1, y: 0}
-        angle: 0
-      - bulletIndex: 0
-        size: 0
-        sizeMultiplier: 0
-        speed: 0
-        speedMultiplier: 0
+        direction: {x: -0.5984601, y: -0.80115265}
+        angle: 180
+      - size: 1
+        bulletIndex: 2
+        sizeMultiplier: 1
+        speed: 1
+        speedMultiplier: 1
         canBounce: 0
-        direction: {x: 0, y: 0}
-        angle: 0
+        direction: {x: 0.984382, y: -0.17604594}
+        angle: 270
     origin: {x: 3.5, y: 0.31}
-  - rotationMultiplier: 0
+  - rotationMultiplier: 1
     shotRanges:
     - angleRange: {x: 320, y: 40}
       bullets:
-      - bulletIndex: 0
-        size: 1
+      - size: 1
+        bulletIndex: 0
         sizeMultiplier: 1
         speed: 1
         speedMultiplier: 1
         canBounce: 0
-        direction: {x: 1, y: 0}
-        angle: 0
-      - bulletIndex: 0
-        size: 1
+        direction: {x: -0.66693807, y: 0.74511313}
+        angle: 40
+      - size: 1
+        bulletIndex: 0
         sizeMultiplier: 1
         speed: 1
         speedMultiplier: 1
         canBounce: 0
-        direction: {x: 1, y: 0}
-        angle: 0
+        direction: {x: -0.5984601, y: -0.80115265}
+        angle: 180
     - angleRange: {x: 140, y: 220}
       bullets:
-      - bulletIndex: 0
-        size: 1
+      - size: 1
+        bulletIndex: 0
         sizeMultiplier: 1
         speed: 1
         speedMultiplier: 1
         canBounce: 0
-        direction: {x: 1, y: 0}
-        angle: 0
-      - bulletIndex: 0
-        size: 1
+        direction: {x: -0.19781357, y: 0.9802396}
+        angle: 140
+      - size: 1
+        bulletIndex: 0
         sizeMultiplier: 1
         speed: 1
         speedMultiplier: 1
         canBounce: 0
-        direction: {x: 1, y: 0}
-        angle: 0
+        direction: {x: -0.5984601, y: -0.80115265}
+        angle: 180
     origin: {x: 3.5, y: 0.31}
