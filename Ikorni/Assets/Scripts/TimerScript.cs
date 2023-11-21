@@ -39,6 +39,6 @@ public class TimerScript : MonoBehaviour
                 timerIsRunning = true;
             }
             
-                }
+        }
     }
 }

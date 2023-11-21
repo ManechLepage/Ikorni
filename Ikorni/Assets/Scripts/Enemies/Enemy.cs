@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         direction.Normalize();
         movement = direction;
         //Debug.Log(movement);
-        if(canMove == true){
+        if(canMove){
             moveCharacter(movement);
         }
         

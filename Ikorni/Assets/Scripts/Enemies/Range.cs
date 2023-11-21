@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Range : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public int r = 100;
+    private Vector2 destination = new Vector2();
+    private float angle_of_dir;
+    private IEnumerator directionChange;
+    private void Start(){
+        directionChange = DirectionChange();
+        StartCoroutine(directionChange);
     }
-
-    // Update is called once per frame
-    void Update()
+    override protected void Update()
     {
-        
+        base.Update(); 
+    }
+    public IEnumerator DirectionChange(){
+        while(true){
+            angle_of_dir = Random.Range(0f, 360f);
+            destination.x = r*Mathf.Cos(angle_of_dir);
+            destination.y = r*Mathf.Sin(angle_of_dir);
+            calculateTarget(destination);
+            Debug.Log(destination);
+            yield return new WaitForSeconds(1.5f);
+        }
+    }
+    public void OnTriggerEnter2D(Collider2D other){
+        if (other.CompareTag("Player")){
+            Debug.Log("TOUCHE");
+            hp -= 1;
+        }
     }
 }

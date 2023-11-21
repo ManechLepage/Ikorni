@@ -15,7 +15,6 @@ public class Melee : Enemy
     // Start is called before the first frame update
     void Start()
     {
-
         float resizedRange = 0.1111111f * attackRange + 0.8888888f;
        // Debug.Log(resizedRange);
         timeBetweenAttack = 10/attackSpeed;

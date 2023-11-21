@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rb;
     private Vector3 moveDir;
     public float moveSpeed = 10f;
     public float dashCooldown = 3f;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -75,10 +75,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate(){
         switch (state) {
             case State.Normal:
-                rigidbody2D.velocity = moveDir * moveSpeed;
+                rb.velocity = moveDir * moveSpeed;
                 break;
             case State.Rolling:
-                rigidbody2D.velocity = rollDir * rollSpeed;
+                rb.velocity = rollDir * rollSpeed;
                 break;    
         }
     }
