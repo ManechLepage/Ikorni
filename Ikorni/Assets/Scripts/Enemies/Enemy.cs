@@ -15,7 +15,9 @@ public class Enemy : MonoBehaviour
     }
 
     protected virtual void Update(){
-
+        if(hp <= 0){
+            gameObject.SetActive(false);
+        }
     }
 
     void moveCharacter(Vector3 direction){

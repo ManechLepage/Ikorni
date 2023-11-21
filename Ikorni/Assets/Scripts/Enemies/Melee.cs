@@ -23,6 +23,7 @@ public class Melee : Enemy
     public void OnTriggerEnter2D(Collider2D other){
         if (other.CompareTag("Player")){
             Debug.Log("TOUCHE");
+            hp -= 1;
             canMove = false;
         }
     }
