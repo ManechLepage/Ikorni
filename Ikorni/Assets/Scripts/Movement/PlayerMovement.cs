@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 rollDir;
     private bool canDash = true;
     private float rollSpeed;
+    public int hp = 1;
     private enum State{
         Normal,
         Rolling,
@@ -67,6 +68,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 break;
             }
+        if(hp <= 0){
+            gameObject.SetActive(false);
+        }
     }
     private IEnumerator DashTimer() {
         yield return new WaitForSeconds(3f); canDash = true;
@@ -81,5 +85,6 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = rollDir * rollSpeed;
                 break;    
         }
+    
     }
 }

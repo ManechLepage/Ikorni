@@ -15,13 +15,13 @@ public class Range : Enemy
     override protected void Update()
     {
         base.Update(); 
+        calculateTarget(destination);
     }
     public IEnumerator DirectionChange(){
         while(true){
             angle_of_dir = Random.Range(0f, 360f);
             destination.x = r*Mathf.Cos(angle_of_dir);
             destination.y = r*Mathf.Sin(angle_of_dir);
-            calculateTarget(destination);
             Debug.Log(destination);
             yield return new WaitForSeconds(1.5f);
         }
