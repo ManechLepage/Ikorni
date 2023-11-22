@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
     public Vector2 size;
     public Vector2 speed;
     public int damage;
+    public Transform origin;
     // public float 
 
     public void Start()
@@ -18,11 +19,12 @@ public class Projectile : MonoBehaviour
 
     public void Update()
     {
-        UpdatePosition();
+     UpdateBullet();
     }
 
-    public void UpdatePosition()
+    public void UpdateBullet()
     {
         transform.position += direction * Time.deltaTime;
+
     }
 }

@@ -53,14 +53,7 @@ public class ShotRange
 public class Bullet
 {
     [Space]
-    public float size;
-    public int bulletIndex = 0;
-    public float sizeMultiplier;
-    [Space]
-    public float speed;
-    public float speedMultiplier;
-    [Space]
-    public bool canBounce;
+    public int bulletIndex;
 
     [HideInInspector]
     public Vector2 direction;
@@ -71,14 +64,7 @@ public class Bullet
         angle = (Mathf.Abs(_angle.y - _angle.x) / (float) bullets) * _bulletIndex + Mathf.Min(_angle.x, _angle.y);
         // angle = (Mathf.Abs(_angle.y - _angle.x) / (float) bullets) * (deltaTime * rotationMultiplier);
         // direction = new Vector2(speed * speedMultiplier * Mathf.Cos(angle), speed * speedMultiplier * Mathf.Sin(angle));
-        direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
         direction = Vector3.Normalize(direction);
     }
-}
-
-[System.Serializable]
-public enum BulletType
-{
-    Normal,
-    Explosive
 }

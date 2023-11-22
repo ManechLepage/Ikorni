@@ -11,6 +11,26 @@ public class ProjectileDatabase : ScriptableObject
 [System.Serializable]
 public class ProjectilePrefab
 {
-    public int ID;
+    
     public GameObject projectile;
+    public BulletType bulletType;
+    [Space]
+    public float size;
+    public float sizeMultiplier;
+    [Space]
+    public float speed;
+    public float speedMultiplier;
+    [Space]
+    public bool canBounce;
+    [Space]
+    public int ID;
+}
+
+[System.Serializable]
+public enum BulletType
+{
+    Normal,
+    Explosive,
+    Healing,
+    Poison
 }
