@@ -51,10 +51,13 @@ public class RangeWeapon : MonoBehaviour
                 _bullet.transform.SetParent(bulletParent.transform);
                 _bullet.name = $"Wave {currentWaveIndex} | Angle {bullet.angle}";
 
-                _bullet.GetComponent<Projectile>().direction = bullet.direction;
-                _bullet.GetComponent<Projectile>().damage = data.bulletDamage;
-                _bullet.GetComponent<Projectile>().size = new Vector2(projectileData.size, projectileData.sizeMultiplier);
-                _bullet.GetComponent<Projectile>().speed = new Vector2(projectileData.speed, projectileData.speedMultiplier);
+                Projectile projectileScript = _bullet.GetComponent<Projectile>();
+
+                projectileScript.direction = bullet.direction;
+                projectileScript.damage = data.bulletDamage;
+                projectileScript.size = new Vector2(projectileData.size, projectileData.sizeMultiplier);
+                projectileScript.speed = new Vector2(projectileData.speed, projectileData.speedMultiplier);
+                projectileScript.origin = transform;
             }
         }
     }

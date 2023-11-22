@@ -25,10 +25,10 @@ MonoBehaviour:
       - bulletIndex: 1
         direction: {x: -0.00000004371139, y: 1}
         angle: 90
-      - bulletIndex: 2
+      - bulletIndex: 0
         direction: {x: -1, y: -0.00000008742278}
         angle: 180
-      - bulletIndex: 2
+      - bulletIndex: 1
         direction: {x: 0.000000011924881, y: -1}
         angle: 270
     origin: {x: 3.5, y: 0.31}
@@ -39,13 +39,13 @@ MonoBehaviour:
       - bulletIndex: 0
         direction: {x: 0.70710677, y: 0.70710677}
         angle: 45
-      - bulletIndex: 0
+      - bulletIndex: 1
         direction: {x: -0.70710677, y: 0.70710677}
         angle: 135
       - bulletIndex: 0
         direction: {x: -0.7071068, y: -0.7071067}
         angle: 225
-      - bulletIndex: 0
+      - bulletIndex: 1
         direction: {x: 0.70710665, y: -0.7071069}
         angle: 315
     origin: {x: 3.5, y: 0.31}

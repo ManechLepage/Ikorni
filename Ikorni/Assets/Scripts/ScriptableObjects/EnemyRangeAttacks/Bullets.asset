@@ -16,15 +16,15 @@ MonoBehaviour:
   - projectile: {fileID: 427844976012662043, guid: eb96516382dfd714e828607d9b9b12f4, type: 3}
     bulletType: 0
     size: 0.5
-    sizeMultiplier: 1
+    sizeMultiplier: 0.1
     speed: 1
-    speedMultiplier: 1
+    speedMultiplier: 0
     canBounce: 0
     ID: 0
   - projectile: {fileID: 427844976012662043, guid: eb96516382dfd714e828607d9b9b12f4, type: 3}
     bulletType: 0
     size: 1
-    sizeMultiplier: 1
+    sizeMultiplier: 0
     speed: 1
     speedMultiplier: 1
     canBounce: 0
