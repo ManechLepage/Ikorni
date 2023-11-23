@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944cf0dfdaea51749808a30b158c9679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: aa2a2716d88910d4da15bc7c8171f622, type: 2}
+  data: {fileID: 11400000, guid: 0f17a65dcb082434b8b876c05c15cbf0, type: 2}
   projectileDatabase: {fileID: 11400000, guid: 308168709e7094146a4832ac231c6af1, type: 2}
   bulletParent: {fileID: 495048783}
 --- !u!212 &1464868015
@@ -1467,6 +1467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   dashCooldown: 3
+  hp: 1
 --- !u!95 &3540497218289374652
 Animator:
   serializedVersion: 5

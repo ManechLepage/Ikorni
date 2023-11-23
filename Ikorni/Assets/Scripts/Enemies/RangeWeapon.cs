@@ -46,7 +46,7 @@ public class RangeWeapon : MonoBehaviour
         {
             foreach (Bullet bullet in shotRange.bullets)
             {
-                ProjectilePrefab projectileData = projectileDatabase.projectiles[bullet.bulletIndex];
+                BulletData projectileData = projectileDatabase.projectiles[bullet.bulletIndex];
                 GameObject _bullet = Instantiate(projectileData.projectile, transform.position, Quaternion.identity);
                 _bullet.transform.SetParent(bulletParent.transform);
                 _bullet.name = $"Wave {currentWaveIndex} | Angle {bullet.angle}";
@@ -57,7 +57,9 @@ public class RangeWeapon : MonoBehaviour
                 projectileScript.damage = data.bulletDamage;
                 projectileScript.size = new Vector2(projectileData.size, projectileData.sizeMultiplier);
                 projectileScript.speed = new Vector2(projectileData.speed, projectileData.speedMultiplier);
-                projectileScript.origin = transform;
+                projectileScript.origin = transform.position;
+                projectileScript.rotationMultiplier = data.waves[currentWaveIndex].rotationMultiplier;
+                projectileScript.timeToDespawn = data.waves[currentWaveIndex].despawningTime;
             }
         }
     }

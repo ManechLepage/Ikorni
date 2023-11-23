@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e49c11a7014ac489cab2f68b937aeb, type: 3}
+  m_Name: Mob1
+  m_EditorClassIdentifier: 
+  timeWaveGap: 2
+  bulletDamage: 4
+  waves:
+  - rotationMultiplier: 0
+    shotRanges:
+    - angleRange: {x: 0, y: 360}
+      bullets:
+      - bulletIndex: 0
+        direction: {x: 1, y: 0}
+        angle: 0
+      - bulletIndex: 1
+        direction: {x: -0.00000004371139, y: 1}
+        angle: 90
+      - bulletIndex: 0
+        direction: {x: -1, y: -0.00000008742278}
+        angle: 180
+      - bulletIndex: 1
+        direction: {x: 0.000000011924881, y: -1}
+        angle: 270
+    origin: {x: 3.5, y: 0.31}
+  - rotationMultiplier: 0
+    shotRanges:
+    - angleRange: {x: 45, y: 405}
+      bullets:
+      - bulletIndex: 0
+        direction: {x: 0.70710677, y: 0.70710677}
+        angle: 45
+      - bulletIndex: 1
+        direction: {x: -0.70710677, y: 0.70710677}
+        angle: 135
+      - bulletIndex: 0
+        direction: {x: -0.7071068, y: -0.7071067}
+        angle: 225
+      - bulletIndex: 1
+        direction: {x: 0.70710665, y: -0.7071069}
+        angle: 315
+    origin: {x: 3.5, y: 0.31}

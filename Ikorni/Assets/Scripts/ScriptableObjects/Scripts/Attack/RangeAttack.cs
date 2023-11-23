@@ -15,6 +15,7 @@ public class RangeAttack : ScriptableObject
 public class Wave
 {
     public float rotationMultiplier;
+    public float despawningTime;
     [Space]
     
     public List<ShotRange> shotRanges = new List<ShotRange>();
