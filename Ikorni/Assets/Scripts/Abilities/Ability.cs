@@ -6,13 +6,17 @@ public class Ability : MonoBehaviour
 {
     public float cooldown;
     public Sprite icon;
-    void Start()
+    public bool canUse = true;
+    public int ID;
+    public virtual void Use()
     {
-        
+        StartCoroutine(Cooldown());
     }
 
-    void Update()
+    public IEnumerator Cooldown()
     {
-        
+        canUse = false;
+        yield return new WaitForSeconds(cooldown);
+        canUse = true;
     }
 }

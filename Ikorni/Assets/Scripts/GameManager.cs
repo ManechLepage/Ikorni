@@ -10,15 +10,22 @@ public class GameManager : MonoBehaviour
 
     [Header("Scripts")]
     public Player player;
+    public PlayerMovement playerMovement;
     public WeaponPreviewInterface weaponPreviewInterface;
 
     [Header("Variables")]
     public bool isInventoryActive;
     [Space]
     public Item playerWeapon;
+
+    [Header("Abilities")]
+    public AbilityDatabase abilityDatabase;
+    public int dashID;
+    [Space]
+    public List<GameObject> abilitiesPrefabs;
     void Start()
     {
-        
+        GameObject dash = Instantiate(abilitiesPrefabs[dashID], player.transform);
     }
 
     void Update()
@@ -49,7 +56,26 @@ public class GameManager : MonoBehaviour
         {
             weaponPreviewInterface.MoveDown();
         }
+        
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            if (abilityDatabase.abilities[dashID].canUse)
+            {
+                abilityDatabase.abilities[dashID].Use();
+                // Transform abilityDatabase.abilities[dashID] in a Dash object
+                Dash dash = (Dash)abilityDatabase.abilities[dashID];
+                dash.rollDir = playerMovement.moveDir;
+            }
+        }
 
+        if (abilityDatabase.abilities[dashID].canUse)
+        {
+            playerMovement.canMove = true;
+        }
+        else
+        {
+            playerMovement.canMove = false;
+        }
     }
 
     public void UpdateWeaponList()
