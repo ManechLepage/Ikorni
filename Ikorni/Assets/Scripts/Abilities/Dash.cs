@@ -3,33 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Dash : Ability
-{   
+{  
+    [Header("Dash")] 
     private GameObject player;
+    private PlayerMovement playerMovement;
+    public float defaultRollSpeed;
+    [HideInInspector]
     public float rollSpeed;
     public Vector3 rollDir;
-    void Start()
+    public override void Start()
     {
+        base.Start();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     public void Update()
     {
-        if (!canUse)
+        if (playerMovement.state == State.Rolling)
         {
+            Debug.Log("Rolling...");
             float rollSpeedMultiplier = 2f;
             rollSpeed -= rollSpeed * rollSpeedMultiplier * Time.deltaTime;
 
             float rollSpeedMinimum = 20f;
             if (rollSpeed < rollSpeedMinimum)
             {
-                canUse = true;
+                playerMovement.state = State.Normal;
             }
         }
     }
 
     void FixedUpdate()
     {
-        if (!canUse)
+        if (playerMovement.state == State.Rolling)
         {
             player.GetComponent<Rigidbody2D>().velocity = rollDir * rollSpeed;
         }
@@ -38,6 +45,7 @@ public class Dash : Ability
     public override void Use()
     {
         base.Use();
-        Debug.Log("Dash used");
+        Debug.Log("Dashing...");
+        playerMovement.state = State.Rolling;
     }
 }

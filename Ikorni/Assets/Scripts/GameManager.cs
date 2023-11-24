@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [Header("GameObjects")]
     public GameObject inventory;
     public GameObject weaponPreview;
+    public GameObject abilityUI;
 
     [Header("Scripts")]
     public Player player;
@@ -19,13 +20,14 @@ public class GameManager : MonoBehaviour
     public Item playerWeapon;
 
     [Header("Abilities")]
-    public AbilityDatabase abilityDatabase;
+    public List<GameObject> abilitiesPrefabs = new List<GameObject>();
+    [HideInInspector]
+    public Dictionary<string, Ability> abilities = new Dictionary<string, Ability>();
     public int dashID;
-    [Space]
-    public List<GameObject> abilitiesPrefabs;
     void Start()
     {
-        GameObject dash = Instantiate(abilitiesPrefabs[dashID], player.transform);
+        GameObject dashObject = Instantiate(abilitiesPrefabs[dashID], abilityUI.transform);
+        abilities.Add("dash", (Ability)dashObject.GetComponent<Dash>());
     }
 
     void Update()
@@ -59,22 +61,14 @@ public class GameManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (abilityDatabase.abilities[dashID].canUse)
+            if (abilities["dash"].canUse)
             {
-                abilityDatabase.abilities[dashID].Use();
-                // Transform abilityDatabase.abilities[dashID] in a Dash object
-                Dash dash = (Dash)abilityDatabase.abilities[dashID];
+                Dash dash = (Dash)abilities["dash"];
+                dash.canUse = false;
+                dash.rollSpeed = dash.defaultRollSpeed;
                 dash.rollDir = playerMovement.moveDir;
+                dash.Use();
             }
-        }
-
-        if (abilityDatabase.abilities[dashID].canUse)
-        {
-            playerMovement.canMove = true;
-        }
-        else
-        {
-            playerMovement.canMove = false;
         }
     }
 

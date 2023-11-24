@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,28 @@ using UnityEngine.UI;
 
 public class AbilityManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Image cooldownImage;
+    public Image iconImage;
+    public Sprite[] cooldownAnimation;
+
     void Start()
     {
-        
+        Array.Reverse(cooldownAnimation);
+    }
+    public void StartAnimation(float secondsPerFrame)
+    {
+        cooldownImage.enabled = true;
+        StartCoroutine(DisplayCooldown(secondsPerFrame));
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator DisplayCooldown(float secondsPerFrame)
     {
-        
+        for (int i = 0; i < cooldownAnimation.Length; i++)
+        {
+            cooldownImage.sprite = cooldownAnimation[i];
+            yield return new WaitForSeconds(secondsPerFrame);
+        }
+        cooldownImage.enabled = false;
     }
+
 }

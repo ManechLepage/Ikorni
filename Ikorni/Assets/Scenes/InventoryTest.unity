@@ -267,7 +267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -556, y: -263}
+  m_AnchoredPosition: {x: 590, y: -300}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &596313488
@@ -632,6 +632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 2144241516}
   weaponPreview: {fileID: 596313486}
+  abilityUI: {fileID: 1827211990}
   player: {fileID: 7396949143809765155}
   playerMovement: {fileID: 2755557342950850096}
   weaponPreviewInterface: {fileID: 596313488}
@@ -639,10 +640,10 @@ MonoBehaviour:
   playerWeapon:
     Name: 
     ID: -1
-  abilityDatabase: {fileID: 11400000, guid: b8168072db034c14ca2af3cb540b68d3, type: 2}
-  dashID: 0
   abilitiesPrefabs:
-  - {fileID: 8221405628511276429, guid: 85b18258dd01b33449a3c2fa1634fe52, type: 3}
+  - {fileID: 5313709709842915404, guid: 85b18258dd01b33449a3c2fa1634fe52, type: 3}
+  - {fileID: 2803161553009897342, guid: 6cb6c3ad39fee6049a80ce8a510f48d0, type: 3}
+  dashID: 0
 --- !u!4 &998828855
 Transform:
   m_ObjectHideFlags: 0
@@ -1257,7 +1258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -590, y: -300}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1881490843
@@ -1509,8 +1510,7 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0, z: 0}
   moveSpeed: 5
   hp: 1
-  canMove: 1
-  rollSpeed: 0
+  state: 0
 --- !u!95 &3540497218289374652
 Animator:
   serializedVersion: 5

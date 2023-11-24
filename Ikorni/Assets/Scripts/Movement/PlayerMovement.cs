@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public enum State
+{
+    Normal,
+    Rolling
+}
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     public Vector3 moveDir;
     public float moveSpeed = 10f;
     public int hp = 1;
-    public bool canMove = true;
-    [HideInInspector]
-    public float rollSpeed;
+    public State state;
     
     void Start()
     {
@@ -19,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (canMove)
+        if (state == State.Normal)
         {
             float moveX = 0f;
             float moveY = 0f;
@@ -58,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         //         rb.velocity = rollDir * rollSpeed;
         //         break;    
         // }
-        if (canMove)
+        if (state == State.Normal)
         {
             rb.velocity = moveDir * moveSpeed;
         }

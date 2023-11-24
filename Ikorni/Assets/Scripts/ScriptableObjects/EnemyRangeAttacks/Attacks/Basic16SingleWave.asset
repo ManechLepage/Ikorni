@@ -24,12 +24,48 @@ MonoBehaviour:
         direction: {x: 1, y: 0}
         angle: 0
       - bulletIndex: 0
+        direction: {x: 0.9238795, y: 0.38268346}
+        angle: 22.5
+      - bulletIndex: 0
+        direction: {x: 0.70710677, y: 0.70710677}
+        angle: 45
+      - bulletIndex: 0
+        direction: {x: 0.38268343, y: 0.9238795}
+        angle: 67.5
+      - bulletIndex: 0
         direction: {x: -0.00000004371139, y: 1}
         angle: 90
+      - bulletIndex: 0
+        direction: {x: -0.3826834, y: 0.92387956}
+        angle: 112.5
+      - bulletIndex: 0
+        direction: {x: -0.70710677, y: 0.70710677}
+        angle: 135
+      - bulletIndex: 0
+        direction: {x: -0.9238795, y: 0.3826835}
+        angle: 157.5
       - bulletIndex: 0
         direction: {x: -1, y: -0.00000008742278}
         angle: 180
       - bulletIndex: 0
+        direction: {x: -0.9238795, y: -0.38268343}
+        angle: 202.5
+      - bulletIndex: 0
+        direction: {x: -0.7071068, y: -0.7071067}
+        angle: 225
+      - bulletIndex: 0
+        direction: {x: -0.38268358, y: -0.9238795}
+        angle: 247.5
+      - bulletIndex: 0
         direction: {x: 0.000000011924881, y: -1}
         angle: 270
+      - bulletIndex: 0
+        direction: {x: 0.3826836, y: -0.92387944}
+        angle: 292.5
+      - bulletIndex: 0
+        direction: {x: 0.70710665, y: -0.7071069}
+        angle: 315
+      - bulletIndex: 0
+        direction: {x: 0.92387956, y: -0.38268343}
+        angle: 337.5
     origin: {x: 3.5, y: 0.31}
