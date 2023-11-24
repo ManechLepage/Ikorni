@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canDash = true;
     private float rollSpeed;
     public int hp = 1;
-    private enum State{
+    public enum State{
         Normal,
         Rolling,
     }
