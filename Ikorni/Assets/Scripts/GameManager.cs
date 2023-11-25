@@ -20,14 +20,29 @@ public class GameManager : MonoBehaviour
     public Item playerWeapon;
 
     [Header("Abilities")]
-    public List<GameObject> abilitiesPrefabs = new List<GameObject>();
-    [HideInInspector]
-    public Dictionary<string, Ability> abilities = new Dictionary<string, Ability>();
-    public int dashID;
+    public List<GameObject> currentAbilities = new List<GameObject>();
+    public AbilityDatabase abilityDatabase;
     void Start()
     {
-        GameObject dashObject = Instantiate(abilitiesPrefabs[dashID], abilityUI.transform);
-        abilities.Add("dash", (Ability)dashObject.GetComponent<Dash>());
+        AddAbility(abilityDatabase.GetIdFromName("Dash"), "dash");
+    }
+
+    public void AddAbility(int id, string name)
+    {
+        GameObject abilityObject = Instantiate(abilityDatabase.GetAbilityFromId(id), abilityUI.transform);
+
+        abilityUI.GetComponent<AbilityPlacementManager>().PlaceAbility(abilityObject);
+
+        currentAbilities.Add(abilityObject);
+    }
+
+    public void ClearAbilities()
+    {
+        foreach (GameObject currentAbility in currentAbilities)
+        {
+            Destroy(currentAbility);
+        }
+        currentAbilities.Clear();
     }
 
     void Update()
@@ -40,6 +55,7 @@ public class GameManager : MonoBehaviour
                 inventory.SetActive(isInventoryActive);
                 weaponPreview.SetActive(!isInventoryActive);
                 UpdateWeaponList();
+                UpdateAbilityList();
             }
         }
         else if (Input.GetAxis("Mouse ScrollWheel") > 0)
@@ -59,15 +75,22 @@ public class GameManager : MonoBehaviour
             weaponPreviewInterface.MoveDown();
         }
         
+        // Abilities
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (abilities["dash"].canUse)
+            foreach (GameObject ability in currentAbilities)
             {
-                Dash dash = (Dash)abilities["dash"];
-                dash.canUse = false;
-                dash.rollSpeed = dash.defaultRollSpeed;
-                dash.rollDir = playerMovement.moveDir;
-                dash.Use();
+                if (ability.GetComponent<Ability>() is Dash)
+                {
+                    if (ability.GetComponent<Ability>().canUse)
+                    {
+                        Dash dash = (Dash)ability.GetComponent<Ability>();
+                        dash.canUse = false;
+                        dash.rollSpeed = dash.defaultRollSpeed;
+                        dash.rollDir = playerMovement.moveDir;
+                        dash.Use();
+                    }
+                }
             }
         }
     }
@@ -75,5 +98,16 @@ public class GameManager : MonoBehaviour
     public void UpdateWeaponList()
     {
         weaponPreviewInterface.UpdateWeaponList(player.playerData.weaponList);
+    }
+
+    public void UpdateAbilityList()
+    {
+        ClearAbilities();
+        AddAbility(abilityDatabase.GetIdFromName("Dash"), "Dash");
+        foreach (AbilityItem item in player.playerData.abilityList)
+        {
+            Debug.Log($"Adding {item.abilityName} to ability list...");
+            AddAbility(abilityDatabase.GetIdFromName(item.abilityName), item.abilityName);
+        }
     }
 }

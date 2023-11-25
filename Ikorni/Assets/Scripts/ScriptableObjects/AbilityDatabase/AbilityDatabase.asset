@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3784eeac5404fd45ac9190ed39db2c1, type: 3}
+  m_Name: AbilityDatabase
+  m_EditorClassIdentifier: 
+  abilities:
+  - ID: 0
+    name: Dash
+    ability: {fileID: 5313709709842915404, guid: 85b18258dd01b33449a3c2fa1634fe52, type: 3}
+  - ID: 1
+    name: BulletClearing
+    ability: {fileID: 2803161553009897342, guid: 6cb6c3ad39fee6049a80ce8a510f48d0, type: 3}

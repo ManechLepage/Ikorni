@@ -14,5 +14,6 @@ public enum Colors
     Black,
     Blue,
     Red,
-    Green1
+    Green1,
+    AbilityYellow
 }

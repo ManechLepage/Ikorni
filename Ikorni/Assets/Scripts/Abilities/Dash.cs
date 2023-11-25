@@ -22,7 +22,6 @@ public class Dash : Ability
     {
         if (playerMovement.state == State.Rolling)
         {
-            Debug.Log("Rolling...");
             float rollSpeedMultiplier = 2f;
             rollSpeed -= rollSpeed * rollSpeedMultiplier * Time.deltaTime;
 
@@ -45,7 +44,6 @@ public class Dash : Ability
     public override void Use()
     {
         base.Use();
-        Debug.Log("Dashing...");
         playerMovement.state = State.Rolling;
     }
 }

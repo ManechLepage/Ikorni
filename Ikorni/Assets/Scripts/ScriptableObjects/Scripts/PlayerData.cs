@@ -18,10 +18,12 @@ public class PlayerData : ScriptableObject
     [Header("Equipment Inventory")] 
     public InventoryObject equipmentInventory;
     public List<InventorySlot> weaponList;
+    public List<AbilityItem> abilityList;
 
     private float defaultSpeed;
     private int defaultHealth;
     private int defaultMaxHealth;
+    private GameManager gameManager;
     public void Awake()
     {
         defaultSpeed = speed;
@@ -75,6 +77,11 @@ public class PlayerData : ScriptableObject
                 {
                     weaponList.Add(equipmentInventory.container.items[i]);
                     // Debug.Log($"Added {equipmentInventory.container.items[i].item.Name} to weapon list");
+                }
+                else if (equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID] is AbilityItem)
+                {
+                    AbilityItem abilityItem = (AbilityItem)equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID];
+                    abilityList.Add(abilityItem);
                 }
             }
         }

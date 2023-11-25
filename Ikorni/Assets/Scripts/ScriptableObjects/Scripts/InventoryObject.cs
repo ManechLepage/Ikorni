@@ -22,7 +22,6 @@ public class InventoryObject : ScriptableObject
             }
         }
         SetEmptySlot(_item, _amount);
-
     }
     public InventorySlot SetEmptySlot(Item _item, int _amount)
     {

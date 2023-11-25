@@ -81,6 +81,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 505d0dbb1f27c41489e19c64864412a0, type: 3}
   canUse: 1
   ID: 0
-  defaultRollSpeed: 24
+  defaultRollSpeed: 30
   rollSpeed: 0
   rollDir: {x: 0, y: 0, z: 0}

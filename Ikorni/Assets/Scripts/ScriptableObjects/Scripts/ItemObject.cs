@@ -6,7 +6,8 @@ using UnityEngine;
 public enum ItemType
 {
     Weapon,
-    Artifact
+    Artifact,
+    Ability
 }
 
 public enum Attribute
