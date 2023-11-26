@@ -41,4 +41,14 @@ public class Projectile : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, origin);
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Destroy(gameObject);
+    }
+
+    void  OnTriggerEnter2D(Collider2D other)
+    {
+        Destroy(gameObject);
+    }
 }
