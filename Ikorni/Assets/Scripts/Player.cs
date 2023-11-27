@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public InventoryObject inventory;
     public bool isInMenu;
     public GameObject canvas;
+    public int hp = 10;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,6 +22,10 @@ public class Player : MonoBehaviour
                 inventory.AddItem(_item, 1);
                 Destroy(other.gameObject);
             }
+        }
+        if (other.CompareTag("bullet")){
+            Debug.Log("hit");
+            hp -= 1;
         }
     }
     public void CollideTree()
@@ -39,5 +44,10 @@ public class Player : MonoBehaviour
     public void DeclineButtonPressed(){
         canvas.SetActive(false);
         isInMenu = false;
+    }
+    void update{
+        if(hp <= 0){
+            gameObject.SetActive(false);
+        }
     }
 }

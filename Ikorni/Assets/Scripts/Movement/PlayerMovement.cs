@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public Vector3 moveDir;
     public float moveSpeed = 10f;
-    public int hp = 1;
+    public int hp = 10;
     public State state;
     
     void Start()
@@ -65,6 +65,12 @@ public class PlayerMovement : MonoBehaviour
         if (state == State.Normal)
         {
             rb.velocity = moveDir * moveSpeed;
+        }
+    }
+    public void OnTriggerEnter2D(Collider2D other){
+        if (other.CompareTag("bullet")){
+            Debug.Log("hit");
+            hp -= 1;
         }
     }
 }
