@@ -45,7 +45,8 @@ public class Player : MonoBehaviour
         canvas.SetActive(false);
         isInMenu = false;
     }
-    void update{
+    void Update()
+    {
         if(hp <= 0){
             gameObject.SetActive(false);
         }

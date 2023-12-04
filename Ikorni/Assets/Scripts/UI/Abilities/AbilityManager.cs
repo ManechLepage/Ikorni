@@ -29,5 +29,4 @@ public class AbilityManager : MonoBehaviour
         }
         cooldownImage.enabled = false;
     }
-
 }

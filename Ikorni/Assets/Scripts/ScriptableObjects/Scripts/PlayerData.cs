@@ -78,11 +78,11 @@ public class PlayerData : ScriptableObject
                     weaponList.Add(equipmentInventory.container.items[i]);
                     // Debug.Log($"Added {equipmentInventory.container.items[i].item.Name} to weapon list");
                 }
-                else if (equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID] is AbilityItem)
-                {
-                    AbilityItem abilityItem = (AbilityItem)equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID];
-                    abilityList.Add(abilityItem);
-                }
+                // else if (equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID] is AbilityItem)
+                // {
+                //     AbilityItem abilityItem = (AbilityItem)equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID];
+                //     abilityList.Add(abilityItem);
+                // }
             }
         }
     }
