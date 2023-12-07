@@ -37,6 +37,7 @@ public class Dash : Ability
     {
         if (playerMovement.state == State.Rolling)
         {
+            Debug.Log(rollDir);
             player.GetComponent<Rigidbody2D>().velocity = rollDir * rollSpeed;
         }
     }

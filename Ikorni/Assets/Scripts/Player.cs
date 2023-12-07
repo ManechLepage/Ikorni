@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public bool isInMenu;
     public GameObject canvas;
     public int hp = 10;
+    public GameObject UI;
+    public GameObject end_screen;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,7 +27,8 @@ public class Player : MonoBehaviour
         }
         if (other.CompareTag("bullet")){
             Debug.Log("hit");
-            hp -= 1;
+            
+            hp -= other.GetComponent<Projectile>().damage;
         }
     }
     public void CollideTree()
@@ -49,6 +52,8 @@ public class Player : MonoBehaviour
     {
         if(hp <= 0){
             gameObject.SetActive(false);
+            UI.SetActive(false);
+            end_screen.SetActive(true);
         }
     }
 }
