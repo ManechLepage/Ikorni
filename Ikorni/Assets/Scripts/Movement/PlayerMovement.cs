@@ -30,26 +30,27 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 moveY = 1f;
+                RollDir = (0, 1, 0)
             }
             if (Input.GetKey(KeyCode.S))
             {
                 moveY = -1f;
+                RollDir = (0, -1, 0)
             }
             if (Input.GetKey(KeyCode.A))
             {
                 moveX = -1f;
+                RollDir = (-1, 0, 0)
             }
             if (Input.GetKey(KeyCode.D))
             {
                 moveX = 1f;
+                rollDir = new Vector3(1, 0, 0)
             }
             moveDir = new Vector3(moveX, moveY).normalized;
         }
 
-        if(hp <= 0)
-        {
-            gameObject.SetActive(false);
-        }
+        
     }
     
     void FixedUpdate()
@@ -67,10 +68,5 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = moveDir * moveSpeed;
         }
     }
-    public void OnTriggerEnter2D(Collider2D other){
-        if (other.CompareTag("bullet")){
-            Debug.Log("hit");
-            hp -= 1;
-        }
-    }
+
 }
