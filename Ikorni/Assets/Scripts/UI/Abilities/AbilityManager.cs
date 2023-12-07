@@ -9,6 +9,7 @@ public class AbilityManager : MonoBehaviour
     public Image cooldownImage;
     public Image iconImage;
     public Sprite[] cooldownAnimation;
+    public GameObject[] abilities = new GameObject[3];
 
     void Start()
     {
