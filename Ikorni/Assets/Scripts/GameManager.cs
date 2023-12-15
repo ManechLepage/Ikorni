@@ -104,10 +104,10 @@ public class GameManager : MonoBehaviour
     {
         ClearAbilities();
         AddAbility(abilityDatabase.GetIdFromName("Dash"), "Dash");
-        foreach (AbilityItem item in player.playerData.abilityList)
-        {
-            Debug.Log($"Adding {item.abilityName} to ability list...");
-            AddAbility(abilityDatabase.GetIdFromName(item.abilityName), item.abilityName);
-        }
+        // foreach (AbilityItem item in player.playerData.abilityList)
+        // {
+        //     Debug.Log($"Adding {item.abilityName} to ability list...");
+        //     AddAbility(abilityDatabase.GetIdFromName(item.abilityName), item.abilityName);
+        // }
     }
 }

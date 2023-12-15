@@ -84,9 +84,9 @@ public class PlayerData : ScriptableObject
                 else if (equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID] is AbilityItem)
                 {
                     AbilityItem abilityItem = (AbilityItem)equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID];
-                    Ability ability = abilityItem.ability;
-                    if (!abilities.Contains(ability))
-                        abilities.Add(ability);
+                    Ability ability = abilityItem.ability.GetComponent<Ability>();
+                    // if (!abilities.Contains(ability))
+                    //     abilities.Add(ability);
                 }
             }
         }
