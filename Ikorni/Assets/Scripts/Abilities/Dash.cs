@@ -28,7 +28,7 @@ public class Dash : Ability
             float rollSpeedMinimum = 20f;
             if (rollSpeed < rollSpeedMinimum)
             {
-                playerMovement.state = State.Normal;
+                playerMovement.state = State.Idle;
             }
         }
     }

@@ -5,8 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public enum State
 {
-    Normal,
-    Rolling
+    Idle,
+    Rolling,
+    Running
 }
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,25 +24,35 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (state == State.Normal)
+        if (state == State.Running || state == State.Idle)
         {
             float moveX = 0f;
             float moveY = 0f;
             if (Input.GetKey(KeyCode.W))
             {
                 moveY = 1f;
+                state = State.Running;
             }
-            if (Input.GetKey(KeyCode.S))
+            else if (Input.GetKey(KeyCode.S))
             {
                 moveY = -1f;
+                state = State.Running;
             }
-            if (Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(KeyCode.A))
             {
                 moveX = -1f;
+                state = State.Running;
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
-            if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D))
             {
                 moveX = 1f;
+                state = State.Running;
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                state = State.Idle;
             }
             moveDir = new Vector3(moveX, moveY).normalized;
         }
@@ -59,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
         //         rb.velocity = rollDir * rollSpeed;
         //         break;    
         // }
-        if (state == State.Normal)
+        if (state == State.Running || state == State.Idle)
         {
             rb.velocity = moveDir * moveSpeed;
         }

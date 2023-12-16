@@ -280,6 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838561303}
   - component: {fileID: 838561302}
+  - component: {fileID: 838561304}
   - component: {fileID: 838561301}
   m_Layer: 0
   m_Name: Main Camera
@@ -362,6 +363,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838561304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838561300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 32
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 1
+  m_PixelSnapping: 1
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &970372322 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3081552741840575863, guid: 51ea4af04afd6d64097f0556e9a71e70, type: 3}
@@ -706,6 +727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 3457608337008689882, guid: 72e9194e11a61134dbc2d22d5dffef39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5992643284296316871, guid: 72e9194e11a61134dbc2d22d5dffef39, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.08718966
@@ -833,6 +858,7 @@ GameObject:
   - component: {fileID: 7238883847120773876}
   - component: {fileID: 2755557342950850096}
   - component: {fileID: 7396949143809765155}
+  - component: {fileID: 7396949143809765156}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -881,12 +907,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3781910019033479378, guid: b0cc079292f5e43479f1ead2dfd76e45, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d12237a57f55d344ac107c2c8473d8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -928,8 +954,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 3, y: 1}
+    newSize: {x: 3, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -954,6 +980,22 @@ MonoBehaviour:
   isInMenu: 0
   canvas: {fileID: 970372322}
   hp: 10
+  UI: {fileID: 0}
+  end_screen: {fileID: 0}
+--- !u!114 &7396949143809765156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5978405284926042673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7d3a51cb2f0d2479f7f31b1abd19b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 3540497218289374652}
+  playerMovement: {fileID: 2755557342950850096}
 --- !u!1001 &8357733328452034371
 PrefabInstance:
   m_ObjectHideFlags: 0
