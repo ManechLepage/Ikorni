@@ -10,22 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3a7051e6b0297846909e37fa9c0d220, type: 3}
-  m_Name: BulletClearer
+  m_Name: BasicDash
   m_EditorClassIdentifier: 
-  ID: 5
+  ID: 6
   uiDisplay: {fileID: 0}
   type: 2
-  itemName: Bullet Clearer
+  itemName: Basic Dash
   isStackable: 0
   buffs: []
   enchantments: []
-  description: 'Adds a new ability: *Bullet Clearing*.
-
-    When activated, this
-    ability clears all projectiles in a certain range.'
-  richText:
-  - text: Bullet Clearing
-    color: 4
-    isBold: 0
-  abilityName: BulletClearing
-  ability: {fileID: 2803161553009897342, guid: 6cb6c3ad39fee6049a80ce8a510f48d0, type: 3}
+  description: Adds a basic dash.
+  richText: []
+  abilityName: Dash
+  ability: {fileID: 5313709709842915404, guid: 85b18258dd01b33449a3c2fa1634fe52, type: 3}

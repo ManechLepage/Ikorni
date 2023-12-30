@@ -17,10 +17,10 @@ MonoBehaviour:
   container:
     items:
     - item:
-        Name: 
-        ID: -1
-      amount: 0
-      ID: -1
+        Name: BasicDash
+        ID: 6
+      amount: 1
+      ID: 6
       parent: {fileID: 0}
     - item:
         Name: 

@@ -383,6 +383,11 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!1 &856035517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4347398429987812687, guid: 51ea4af04afd6d64097f0556e9a71e70, type: 3}
+  m_PrefabInstance: {fileID: 8357733328452034371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &970372322 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3081552741840575863, guid: 51ea4af04afd6d64097f0556e9a71e70, type: 3}
@@ -427,7 +432,7 @@ MonoBehaviour:
   playerWeapon:
     Name: 
     ID: -1
-  currentAbilities: []
+  abilityInventory: {fileID: 11400000, guid: 43782e305cfca22459fa4e12c70068d5, type: 2}
   abilityDatabase: {fileID: 11400000, guid: b8f1aaf0976442f49bb2bcfc7e3bf07a, type: 2}
 --- !u!4 &998828855
 Transform:
@@ -461,7 +466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1464868014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -544,11 +549,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1470939141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1828407717208205448, guid: 51ea4af04afd6d64097f0556e9a71e70, type: 3}
+  m_PrefabInstance: {fileID: 8357733328452034371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1824104302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5458814756596595688, guid: 51ea4af04afd6d64097f0556e9a71e70, type: 3}
+  m_PrefabInstance: {fileID: 8357733328452034371}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1827211990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6588396512024788249, guid: 51ea4af04afd6d64097f0556e9a71e70, type: 3}
   m_PrefabInstance: {fileID: 8357733328452034371}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1827211992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827211990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6385a374be500dc46a847ee90479cecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  database: {fileID: 11400000, guid: b8f1aaf0976442f49bb2bcfc7e3bf07a, type: 2}
+  inventory: {fileID: 11400000, guid: 43782e305cfca22459fa4e12c70068d5, type: 2}
+  abilityPlacements:
+  - {fileID: 1824104302}
+  - {fileID: 856035517}
+  - {fileID: 1470939141}
+  abilityPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1957539264
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80276006bb859d34c88c3447df91f3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 6e8c96750fc442745a858ecb38855719, type: 2}
+  item: {fileID: 11400000, guid: b8e42973eaa98f84bae84d8788c7d911, type: 2}
   isGrabable: 1
 --- !u!212 &1957539267
 SpriteRenderer:
@@ -1104,10 +1141,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 7396949143809765155}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1173324555046165330, guid: 51ea4af04afd6d64097f0556e9a71e70, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6588396512024788249, guid: 51ea4af04afd6d64097f0556e9a71e70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1827211992}
   m_SourcePrefab: {fileID: 100100000, guid: 51ea4af04afd6d64097f0556e9a71e70, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

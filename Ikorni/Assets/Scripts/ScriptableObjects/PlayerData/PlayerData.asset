@@ -15,9 +15,19 @@ MonoBehaviour:
   speed: 5
   health: 5
   maxHealth: 5
-  weapon: {fileID: 0}
-  buffs: []
   defensePercentage: 0
-  resistanceBonus: []
   equipmentInventory: {fileID: 11400000, guid: 25fca23d2c2317543a64914e2641f235, type: 2}
-  affectedSlots: []
+  weaponList:
+  - item:
+      Name: WoodenShuriken
+      ID: 3
+    amount: 1
+    ID: 3
+    parent: {fileID: 0}
+  - item:
+      Name: WoodenSword
+      ID: 1
+    amount: 7
+    ID: 1
+    parent: {fileID: 0}
+  abilityInventory: {fileID: 11400000, guid: 43782e305cfca22459fa4e12c70068d5, type: 2}

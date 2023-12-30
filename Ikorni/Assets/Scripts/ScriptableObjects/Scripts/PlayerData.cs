@@ -18,10 +18,7 @@ public class PlayerData : ScriptableObject
     [Header("Equipment Inventory")] 
     public InventoryObject equipmentInventory;
     public List<InventorySlot> weaponList;
-
-    [Space]
-    [Header("Abilities")]
-    public AbilityManager abilityManager;
+    public AbilityInventory abilityInventory;
 
     private float defaultSpeed;
     private int defaultHealth;
@@ -85,6 +82,7 @@ public class PlayerData : ScriptableObject
                 {
                     AbilityItem abilityItem = (AbilityItem)equipmentInventory.database.GetItem[equipmentInventory.container.items[i].item.ID];
                     Ability ability = abilityItem.ability.GetComponent<Ability>();
+                    abilityInventory.AddItem(ability);
                     // if (!abilities.Contains(ability))
                     //     abilities.Add(ability);
                 }
@@ -99,6 +97,7 @@ public class PlayerData : ScriptableObject
         maxHealth = defaultMaxHealth;
         defensePercentage = 0;
         weaponList = new List<InventorySlot>();
+        abilityInventory.ClearInventory();
 
         // resistanceBonus.Clear();
     }
