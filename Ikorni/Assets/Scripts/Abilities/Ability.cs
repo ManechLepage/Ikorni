@@ -15,6 +15,7 @@ public class Ability : MonoBehaviour
     {
         abilityUI = gameObject.GetComponent<AbilityManager>();
         abilityUI.iconImage.sprite = icon;
+        canUse = true;
     }
     public virtual void Use()
     {

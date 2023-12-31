@@ -7,12 +7,12 @@ public class GameManager : MonoBehaviour
     [Header("GameObjects")]
     public GameObject inventory;
     public GameObject weaponPreview;
-    public GameObject abilityUI;
 
     [Header("Scripts")]
     public Player player;
     public PlayerMovement playerMovement;
     public WeaponPreviewInterface weaponPreviewInterface;
+    public AbilityDisplayManager abilityManager;
 
     [Header("Variables")]
     public bool isInventoryActive;
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
                 inventory.SetActive(isInventoryActive);
                 weaponPreview.SetActive(!isInventoryActive);
                 UpdateWeaponList();
+                UpdateAbilityList();
             }
         }
         else if (Input.GetAxis("Mouse ScrollWheel") > 0)
@@ -55,13 +56,16 @@ public class GameManager : MonoBehaviour
         // Abilities
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
+            Debug.Log("Mouse 1 pressed");
             foreach (Ability ability in abilityInventory.inventory)
             {
-                if (ability is Dash)
+                if (ability != null && ability.ID == 0)
                 {
-                    if (ability.GetComponent<Ability>().canUse)
+                    Debug.Log($"There is Dash in inventory {ability.canUse}");
+                    if (ability.canUse)
                     {
-                        Dash dash = (Dash)ability.GetComponent<Ability>();
+                        Debug.Log("Dashing...");
+                        Dash dash = (Dash)ability;
                         dash.canUse = false;
                         dash.rollSpeed = dash.defaultRollSpeed;
                         dash.rollDir = playerMovement.moveDir;
@@ -75,5 +79,10 @@ public class GameManager : MonoBehaviour
     public void UpdateWeaponList()
     {
         weaponPreviewInterface.UpdateWeaponList(player.playerData.weaponList);
+    }
+
+    public void UpdateAbilityList()
+    {
+        abilityManager.UpdateAbilities();
     }
 }

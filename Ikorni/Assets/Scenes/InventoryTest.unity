@@ -424,10 +424,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 2144241516}
   weaponPreview: {fileID: 596313486}
-  abilityUI: {fileID: 1827211990}
   player: {fileID: 7396949143809765155}
   playerMovement: {fileID: 2755557342950850096}
   weaponPreviewInterface: {fileID: 596313488}
+  abilityManager: {fileID: 1827211992}
   isInventoryActive: 0
   playerWeapon:
     Name: 
@@ -582,7 +582,7 @@ MonoBehaviour:
   - {fileID: 1824104302}
   - {fileID: 856035517}
   - {fileID: 1470939141}
-  abilityPrefabs:
+  abilityGameObjects:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
