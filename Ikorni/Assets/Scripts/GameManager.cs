@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
             {
                 if (ability != null && ability.ID == 0)
                 {
-                    Debug.Log($"There is Dash in inventory {ability.canUse}");
+                    Debug.Log($"There is Dash in inventory {ability.canUse} {ability.name}");
                     if (ability.canUse)
                     {
                         Debug.Log("Dashing...");

@@ -19,6 +19,7 @@ public class Ability : MonoBehaviour
     }
     public virtual void Use()
     {
+        canUse = false;
         abilityUI.StartAnimation(cooldown / 32);
         StartCoroutine(Cooldown());
     }
