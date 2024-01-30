@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 [System.Serializable]
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(state);
         if (state == State.Running || state == State.Idle)
         {
             float moveX = 0f;
@@ -33,27 +35,25 @@ public class PlayerMovement : MonoBehaviour
                 moveY = 1f;
                 state = State.Running;
             }
-            else if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S))
             {
                 moveY = -1f;
                 state = State.Running;
             }
-            else if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A))
             {
                 moveX = -1f;
                 state = State.Running;
                 gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
-            else if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D))
             {
                 moveX = 1f;
                 state = State.Running;
                 gameObject.GetComponent<SpriteRenderer>().flipX = true;
             }
-            else
-            {
-                state = State.Idle;
-            }
+            if(moveX == 0f && moveY == 0f)
+            state = State.Idle;
             moveDir = new Vector3(moveX, moveY).normalized;
         }
 
