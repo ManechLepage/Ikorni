@@ -8,6 +8,9 @@ public class LevelGenerator : MonoBehaviour
     public List<GameObject> placements = new List<GameObject>();
 
     public void LoadStructuresInDictionary()
+    {
+        
+    }
 
     public void GenerateLevel(float populationDensity)
     {
