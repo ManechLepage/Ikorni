@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1cee66efacff04eb41aa0fe03fa626, type: 3}
   m_Name: World1Structures
   m_EditorClassIdentifier: 
-  structureArray: []
+  structureArray:
+  - {fileID: 3363755639195688747, guid: 644c53b3a236d6e4f87ad8fe0ffbc4b8, type: 3}
+  - {fileID: 3363755639195688747, guid: 5719d7750ca34c34384937df766489fa, type: 3}
+  - {fileID: 6023684411637503429, guid: 115723297e1e3a343a0edf7645c32f94, type: 3}
+  - {fileID: 6023684411637503429, guid: 2e4fc775ffa050c45a418aa45bec5f6d, type: 3}
+  - {fileID: 6023684411637503429, guid: 88d57e288fc718043beb6987cde797ac, type: 3}
+  - {fileID: 6023684411637503429, guid: 76ece95678e89514f96c3c63dcf46441, type: 3}

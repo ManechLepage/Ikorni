@@ -4,47 +4,95 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
-    public StructureDataSet structures;
-    public List<GameObject> placements = new List<GameObject>();
+    [HideInInspector] public List<GameObject> structures = new List<GameObject>();
+    [HideInInspector] public List<GameObject> placements = new List<GameObject>();
 
-    public void LoadStructuresInDictionary()
+    public GameObject placementPrefab;
+    public GameObject wallPrefab;
+    public StructureDataSet structureDataSet;
+    public GameObject placementParent;
+    public GameObject structureParent;
+    public GameObject wallParent;
+    public float wallMargin = 1f;
+
+    private Dictionary<GameObject, float> structureRarity;
+
+    [Header("Generation Settings")]
+    public int levelWidth;
+    public int levelHeight;
+    public int structureCount;
+
+    public void Start()
     {
-        
+        GeneratePlacements();
+        structureRarity = GenerateStructureRarity();
+        GenerateLevel();
+        GenerateWalls();
+    }
+
+    public Dictionary<GameObject, float> GenerateStructureRarity()
+    {
+        Dictionary<GameObject, float> structureRarity = new Dictionary<GameObject, float>();
+        foreach (GameObject structure in structureDataSet.structureArray)
+        {
+            structureRarity.Add(structure, structure.GetComponent<Structure>().rarity);
+        }
+        return structureRarity;
+    }
+    public void GeneratePlacements()
+    {
+        for (int i = 0; i < structureCount; i++)
+        {
+            GameObject placement = Instantiate(placementPrefab, new Vector3(Random.Range(-levelWidth/2, levelWidth/2), Random.Range(-levelWidth/2, levelHeight/2), 0), Quaternion.identity);
+            placement.transform.SetParent(placementParent.transform);
+        }
+    }
+
+    public void GenerateWalls()
+    {
+        GameObject wallN = Instantiate(wallPrefab, new Vector3(0, levelHeight/2 + wallMargin, 0), Quaternion.identity);
+        wallN.transform.localScale = new Vector3(levelWidth + wallMargin, 1, 1);
+        wallN.transform.SetParent(wallParent.transform);
+
+        GameObject wallS = Instantiate(wallPrefab, new Vector3(0, -levelHeight/2 - wallMargin, 0), Quaternion.identity);
+        wallS.transform.localScale = new Vector3(levelWidth + wallMargin, 1, 1);
+        wallS.transform.SetParent(wallParent.transform);
+
+        GameObject wallE = Instantiate(wallPrefab, new Vector3(levelWidth/2 + wallMargin, 0, 0), Quaternion.identity);
+        wallE.transform.localScale = new Vector3(1, levelHeight + wallMargin, 1);
+        wallE.transform.SetParent(wallParent.transform);
+
+        GameObject wallW = Instantiate(wallPrefab, new Vector3(-levelWidth/2 - wallMargin, 0, 0), Quaternion.identity);
+        wallW.transform.localScale = new Vector3(1, levelHeight + wallMargin, 1);
+        wallW.transform.SetParent(wallParent.transform);
     }
 
     public void GenerateLevel()
     {
-        foreach (GameObject placement in placements)
+        foreach (Transform placement in placementParent.GetComponentInChildren<Transform>())
         {
-            GenerateStructure(placement.GetComponent<PlacementSettings>().isBorder, placement.transform.position);
+            GameObject structure = Instantiate(RandomStructure(), placement.position, Quaternion.identity); 
         }
     }
 
-    public void GenerateStructure(bool isBordered, Vector2 positionOfPlacement)
+    public GameObject RandomStructure()
     {
-        GameObject structure = null;
-        while (structure != null)
+        float totalRarity = 0f;
+        foreach (var pair in structureRarity)
         {
-            structure = structures.structureArray[Random.Range(0, structures.structureArray.Length)];
-            bool isStructureValid = false;
-            if (structure.GetComponent<Structure>().isBorderStructure == isBordered)
+            totalRarity += pair.Value;
+        }
+
+        float randomValue = Random.Range(0f, totalRarity);
+
+        foreach (var pair in structureRarity)
+        {
+            randomValue -= pair.Value;
+            if (randomValue <= 0)
             {
-                if (structure.GetComponent<Structure>().rarity > Random.Range(0f, 1f))
-                {
-                    isStructureValid = true;
-                }
-            }
-            if (!isStructureValid)
-            {
-                structure = null;
+                return pair.Key;
             }
         }
-        GameObject newStructure = Instantiate(structure);
-        newStructure.transform.position = positionOfPlacement;
-    }
-
-    private void Start() 
-    {
-        GenerateLevel();
+        return null;
     }
 }
