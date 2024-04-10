@@ -19,16 +19,55 @@ public class PlayerData : ScriptableObject
     public InventoryObject equipmentInventory;
     public List<InventorySlot> weaponList;
     public AbilityInventory abilityInventory;
+    
+    [Space]
+    [Header("Exp Level system")]
+    public AnimationCurve expToLevelCurve;
+    public int maxLevels;
+    private List<int> levels = new List<int>();
 
     private float defaultSpeed;
     private int defaultHealth;
     private int defaultMaxHealth;
     private GameManager gameManager;
+    
     public void Awake()
     {
         defaultSpeed = speed;
         defaultHealth = health;
         defaultMaxHealth = maxHealth;
+        levels = GetLevelSteps();
+    }
+
+    public List<int> GetLevelSteps()
+    {
+        List<int> steps = new List<int>();
+        for (int i = 0; i < maxLevels; i++)
+        {
+            steps.Add(expToLevelCurve[i + 1]);
+        }
+        return steps;
+    }
+    
+    public int GetCurrentLevel(float exp)
+    {
+        for (int i = 0; i < maxLevels - 1; i++)
+        {
+            if (levels[i] < exp)
+            {
+                if (levels[i + 1 > exp])
+                {
+                    return i;
+                }
+            }
+        }
+        return null;
+    }
+
+    public float GetLevelProgression(int lvl, float exp)
+    {
+        float expInLvl = exp - levels[lvl];
+        // todo
     }
 
     public void CheckEquipment()
