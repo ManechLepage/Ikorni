@@ -1,22 +1,27 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine.UI;
 
 public class LevelUpgradeComponent : MonoBehaviour
 {
     public bool isUpgrading = false;
     [Space]
     public GameObject upgradePanel;
+    public TextMeshProUGUI[] rarityTexts = new TextMeshProUGUI[3];
+    public TextMeshProUGUI displayText;
+    public Color[] rarityColors = new Color[3];
     [Space]
     public PlayerData playerData;
     public ItemDatabaseObject items;
-    public InventoryObject inventory;
-    public InventoryObject itemChoices;
 
     public void Upgrade(int lvl)
     {
         isUpgrading = true;
         upgradePanel.SetActive(true);
+        displayText.text = $"Level {lvl} Upgrade!";
+        GenerateItems();
     }
 
     public void DeActivateUpgradePanel()
@@ -31,6 +36,8 @@ public class LevelUpgradeComponent : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             itemChoices[i] = GenerateRandomItem();
+            rarityTexts[i].text = itemChoices[i].rarity.ToString();
+            rarityTexts[i].color = rarityColors[(int)itemChoices[i].rarity];
         }
     }
 

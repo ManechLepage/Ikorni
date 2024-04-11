@@ -23,8 +23,8 @@ public class ExpComponent : MonoBehaviour
     {
         for (int i = 0; i < playerData.maxLevels; i++)
         {
-            expSteps.Add((int)(playerData.expToLevelCurve.Evaluate(0.8f) * playerData.maxExp));
-            Debug.Log(expSteps[i]);
+            float value = (i + 1) / (float)playerData.maxLevels;
+            expSteps.Add((int)(playerData.expToLevelCurve.Evaluate(value) * playerData.maxExp));
         }
         UpdateLevel();
     }
@@ -38,7 +38,7 @@ public class ExpComponent : MonoBehaviour
         localExp = playerData.GetExpAtLevel(lvl, exp, expSteps);
         expLabel.text = $"{localExp.ToString()} / {playerData.GetExpStepOfLevel(lvl, expSteps).ToString()}";
 
-        expBar.GetComponent<RectTransform>().sizeDelta = new Vector2(playerData.GetExpBarLength(lvl, exp, expSteps) * 100, 10);
+        expBar.GetComponent<RectTransform>().localScale = new Vector3(localExp / playerData.GetExpStepOfLevel(lvl, expSteps), 1, 1);
         if (_lvl != lvl)
         {
             OnLevelUp(lvl);
