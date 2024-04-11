@@ -17,8 +17,9 @@ MonoBehaviour:
   type: 0
   itemName: Wooden Sword
   isStackable: 0
+  rarity: 1
   buffs: []
-  resistance: []
+  enchantments: []
   description: 'Basic sword that every good squirrel has.
 
     *Inflicts 3-5 melee
@@ -29,4 +30,5 @@ MonoBehaviour:
     isBold: 0
   minDamageDealt: 3
   maxDamageDealt: 5
-  damageType: 0
+  critPercentage: 0
+  critMultiplierPercentage: 200

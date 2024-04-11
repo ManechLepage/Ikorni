@@ -17,6 +17,7 @@ MonoBehaviour:
   type: 2
   itemName: Bullet Clearer
   isStackable: 0
+  rarity: 1
   buffs: []
   enchantments: []
   description: 'Adds a new ability: *Bullet Clearing*.

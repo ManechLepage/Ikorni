@@ -17,11 +17,9 @@ MonoBehaviour:
   type: 1
   itemName: Molten Nut
   isStackable: 1
+  rarity: 1
   buffs: []
-  resistance:
-  - damageType: 2
-    value: 15
-    stackValue: 5
+  enchantments: []
   description: '-15% *fire* damage taken.
 
     *Stackable (-15% per stack)*'
