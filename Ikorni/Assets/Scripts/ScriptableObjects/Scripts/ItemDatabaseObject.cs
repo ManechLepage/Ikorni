@@ -22,4 +22,17 @@ public class ItemDatabaseObject : ScriptableObject, ISerializationCallbackReceiv
     {
         GetItem = new Dictionary<int, ItemObject>();
     }
+
+    public List<ItemObject> GetItemsByRarity(Rarity rarity)
+    {
+        List<ItemObject> itemsByRarity = new List<ItemObject>();
+        foreach (ItemObject item in items)
+        {
+            if (item.rarity == rarity)
+            {
+                itemsByRarity.Add(item);
+            }
+        }
+        return itemsByRarity;
+    }
 }

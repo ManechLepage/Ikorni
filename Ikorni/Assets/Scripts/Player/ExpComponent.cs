@@ -15,7 +15,7 @@ public class ExpComponent : MonoBehaviour
     [Space]
     public TextMeshProUGUI expLabel;
     public TextMeshProUI lvlLabel;
-
+    public LevelUpgradeComponent levelUpgradeComponent;
     public GameObject expBar;
 
     void Start()
@@ -25,6 +25,7 @@ public class ExpComponent : MonoBehaviour
 
     public void UpdateLevel()
     {
+        int _lvl = lvl;
         lvl = playerData.GetCurrentLevel(exp);
         lvlLabel.text = lvl.ToString();
 
@@ -32,5 +33,21 @@ public class ExpComponent : MonoBehaviour
         expLabel.text = $"{localExp.ToString()} / {playerData.GetExpToNextLevel(lvl).ToString()}";
 
         expBar.GetComponent<RectTransform>().sizeDelta = new Vector2(playerData.GetExpBarLength(lvl, exp) * 100, 10);
+        if (_lvl != lvl)
+        {
+            OnLevelUp(lvl);
+        }
+    }
+
+    public void AddExp(float amount)
+    {
+        exp += amount;
+        UpdateLevel();
+    }
+
+    public void OnLevelUp(int lvl)
+    {
+        playerData.health = playerData.HealPlayerByPercentage(0.2f);
+        levelUpgradeComponent.Upgrade(lvl);
     }
 }
