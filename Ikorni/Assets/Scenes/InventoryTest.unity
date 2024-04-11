@@ -3133,8 +3133,8 @@ MonoBehaviour:
   canvas: {fileID: 970372322}
   UI: {fileID: 0}
   end_screen: {fileID: 0}
-  healthBar: {fileID: 0}
-  healthText: {fileID: 0}
+  healthBar: {fileID: 1867447185}
+  healthText: {fileID: 990091854}
 --- !u!114 &7396949143809765156
 MonoBehaviour:
   m_ObjectHideFlags: 0
