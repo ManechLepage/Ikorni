@@ -11,28 +11,34 @@ public class ExpComponent : MonoBehaviour
     public float exp = 0;
     private float localExp = 0;
     public int lvl = 0;
+    public List<int> expSteps = new List<int>();
 
     [Space]
     public TextMeshProUGUI expLabel;
-    public TextMeshProUI lvlLabel;
+    public TextMeshProUGUI lvlLabel;
     public LevelUpgradeComponent levelUpgradeComponent;
     public GameObject expBar;
 
     void Start()
     {
+        for (int i = 0; i < playerData.maxLevels; i++)
+        {
+            expSteps.Add((int)(playerData.expToLevelCurve.Evaluate(i / playerData.maxLevels) * playerData.maxExp));
+            Debug.Log(expSteps[i]);
+        }
         UpdateLevel();
     }
 
     public void UpdateLevel()
     {
         int _lvl = lvl;
-        lvl = playerData.GetCurrentLevel(exp);
+        lvl = playerData.GetCurrentLevel(exp, expSteps);
         lvlLabel.text = lvl.ToString();
 
-        localExp = playerData.GetExpAtLevel(lvl, exp);
-        expLabel.text = $"{localExp.ToString()} / {playerData.GetExpToNextLevel(lvl).ToString()}";
+        localExp = playerData.GetExpAtLevel(lvl, exp, expSteps);
+        expLabel.text = $"{localExp.ToString()} / {playerData.GetExpStepOfLevel(lvl, expSteps).ToString()}";
 
-        expBar.GetComponent<RectTransform>().sizeDelta = new Vector2(playerData.GetExpBarLength(lvl, exp) * 100, 10);
+        expBar.GetComponent<RectTransform>().sizeDelta = new Vector2(playerData.GetExpBarLength(lvl, exp, expSteps) * 100, 10);
         if (_lvl != lvl)
         {
             OnLevelUp(lvl);
@@ -47,7 +53,16 @@ public class ExpComponent : MonoBehaviour
 
     public void OnLevelUp(int lvl)
     {
-        playerData.health = playerData.HealPlayerByPercentage(0.2f);
+        playerData.HealPlayerByPercentage(0.2f);
         levelUpgradeComponent.Upgrade(lvl);
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Debug.Log("Add levels");
+            AddExp(10f);
+        }
     }
 }

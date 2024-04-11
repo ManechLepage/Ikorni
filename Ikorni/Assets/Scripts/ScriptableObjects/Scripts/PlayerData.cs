@@ -24,8 +24,7 @@ public class PlayerData : ScriptableObject
     [Header("Exp Level system")]
     public AnimationCurve expToLevelCurve;
     public int maxLevels;
-    private List<int> levels = new List<int>();
-
+    public int maxExp;
     private float defaultSpeed;
     private int defaultHealth;
     private int defaultMaxHealth;
@@ -36,47 +35,38 @@ public class PlayerData : ScriptableObject
         defaultSpeed = speed;
         defaultHealth = health;
         defaultMaxHealth = maxHealth;
-        levels = GetLevelSteps();
     }
-
-    public List<int> GetLevelSteps()
-    {
-        List<int> steps = new List<int>();
-        for (int i = 0; i < maxLevels; i++)
-        {
-            steps.Add(expToLevelCurve[i + 1]);
-        }
-        return steps;
-    }
-    
-    public int GetCurrentLevel(float exp)
+    public int GetCurrentLevel(float exp, List<int> levels)
     {
         for (int i = 0; i < maxLevels - 1; i++)
         {
             if (levels[i] < exp)
             {
-                if (levels[i + 1 > exp])
+                if (levels[i + 1] > exp)
                 {
                     return i;
                 }
             }
         }
-        return null;
+        return 0;
     }
 
-    public float GetExpAtLevel(int lvl, float exp)
+    public float GetExpAtLevel(int lvl, float exp, List<int> levels)
     {
-        return expInLvl = exp - levels[lvl];
+        return exp - levels[lvl];
     }
 
-    public float GetExpStepOfLevel(int lvl)
+    public float GetExpStepOfLevel(int lvl, List<int> levels)
     {
-        return levels[lvl] - levels[lvl - 1];
+        if (lvl != 0)
+            return levels[lvl] - levels[lvl - 1];
+        else
+            return levels[lvl];
     }
 
-    public float GetExpBarLength(int lvl, float exp)
+    public float GetExpBarLength(int lvl, float exp, List<int> levels)
     {
-        return GetExpAtLevel(exp) / GetExpStepOfLevel(lvl);
+        return GetExpAtLevel(lvl, exp, levels) / GetExpStepOfLevel(lvl, levels);
     }
 
     public void HealPlayerByPercentage(float percentageAmount)

@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class LevelUpgradeComponent : MonoBehaviour
 {
@@ -7,7 +9,7 @@ public class LevelUpgradeComponent : MonoBehaviour
     public GameObject upgradePanel;
     [Space]
     public PlayerData playerData;
-    public ItemDataBase items;
+    public ItemDatabaseObject items;
     public InventoryObject inventory;
     public InventoryObject itemChoices;
 
@@ -52,9 +54,8 @@ public class LevelUpgradeComponent : MonoBehaviour
 
     public ItemObject GetRandomItemObjectByRarity(Rarity rarity)
     {
-        List<ItemObject> itemsByRarity = items.GetItemsByRarity(rarity);
+        List<ItemObject> itemsByRarity = new List<ItemObject>();
+        itemsByRarity = items.GetItemsByRarity(rarity);
         return itemsByRarity[Random.Range(0, itemsByRarity.Count)];
     }
-
-
 }
