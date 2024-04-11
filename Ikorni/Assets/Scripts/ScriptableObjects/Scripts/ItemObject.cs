@@ -18,6 +18,13 @@ public enum Attribute
     Damage
 }
 
+public enum Rarity
+{
+    Uncommon,
+    Rare,
+    Legendary
+}
+
 public abstract class ItemObject : ScriptableObject
 {
     [Header("Item Stats")]
@@ -26,6 +33,7 @@ public abstract class ItemObject : ScriptableObject
     public ItemType type;
     public string itemName;
     public bool isStackable;
+    public Rarity rarity;
     
     [Header("Buffs")]
     public ItemBuff[] buffs;
