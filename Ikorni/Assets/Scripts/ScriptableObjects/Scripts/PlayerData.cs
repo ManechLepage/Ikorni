@@ -64,10 +64,28 @@ public class PlayerData : ScriptableObject
         return null;
     }
 
-    public float GetLevelProgression(int lvl, float exp)
+    public float GetExpAtLevel(int lvl, float exp)
     {
-        float expInLvl = exp - levels[lvl];
-        // todo
+        return expInLvl = exp - levels[lvl];
+    }
+
+    public float GetExpStepOfLevel(int lvl)
+    {
+        return levels[lvl] - levels[lvl - 1];
+    }
+
+    public float GetExpBarLength(int lvl, float exp)
+    {
+        return GetExpAtLevel(exp) / GetExpStepOfLevel(lvl);
+    }
+
+    public void HealPlayerByPercentage(float percentageAmount)
+    {
+        health += (int)(maxHealth * percentageAmount);
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
     }
 
     public void CheckEquipment()
