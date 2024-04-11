@@ -23,7 +23,7 @@ public class ExpComponent : MonoBehaviour
     {
         for (int i = 0; i < playerData.maxLevels; i++)
         {
-            expSteps.Add((int)(playerData.expToLevelCurve.Evaluate(i / playerData.maxLevels) * playerData.maxExp));
+            expSteps.Add((int)(playerData.expToLevelCurve.Evaluate(0.8f) * playerData.maxExp));
             Debug.Log(expSteps[i]);
         }
         UpdateLevel();
