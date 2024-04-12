@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RotatingCross
   m_EditorClassIdentifier: 
   timeWaveGap: 2
-  bulletDamage: 3
+  bulletDamage: 1
   waves:
   - rotationMultiplier: 1
     despawningTime: 4

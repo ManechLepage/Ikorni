@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Basic16SingleWave
   m_EditorClassIdentifier: 
   timeWaveGap: 6
-  bulletDamage: 0
+  bulletDamage: 1
   waves:
   - rotationMultiplier: 0
     despawningTime: 0
