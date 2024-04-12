@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ExpComponent : MonoBehaviour
 {
     public PlayerData playerData;
+    public Player player;
 
     public float exp = 0;
     private float localExp = 0;
@@ -53,7 +54,7 @@ public class ExpComponent : MonoBehaviour
 
     public void OnLevelUp(int lvl)
     {
-        playerData.HealPlayerByPercentage(0.2f);
+        player.HealPlayerByPercentage(0.2f);
         levelUpgradeComponent.Upgrade(lvl);
     }
 

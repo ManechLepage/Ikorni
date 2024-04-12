@@ -37,7 +37,7 @@ public class RangeWeapon : MonoBehaviour
 
     public void GenerateNextWave()
     {
-        Debug.Log($"Generating wave {currentWaveIndex}...", gameObject);
+        // Debug.Log($"Generating wave {currentWaveIndex}...", gameObject);
         
         data.waves[currentWaveIndex].origin = transform.position;
         data.waves[currentWaveIndex].SetShotRange();

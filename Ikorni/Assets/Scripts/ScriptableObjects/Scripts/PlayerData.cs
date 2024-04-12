@@ -7,7 +7,6 @@ public class PlayerData : ScriptableObject
 {
     [Header("Main Player Stats")]
     public float speed;
-    public int health;
     public int maxHealth;
 
     [Space]
@@ -33,7 +32,6 @@ public class PlayerData : ScriptableObject
     public void Awake()
     {
         defaultSpeed = speed;
-        defaultHealth = health;
         defaultMaxHealth = maxHealth;
     }
     public int GetCurrentLevel(float exp, List<int> levels)
@@ -67,15 +65,6 @@ public class PlayerData : ScriptableObject
     public float GetExpBarLength(int lvl, float exp, List<int> levels)
     {
         return GetExpAtLevel(lvl, exp, levels) / GetExpStepOfLevel(lvl, levels);
-    }
-
-    public void HealPlayerByPercentage(float percentageAmount)
-    {
-        health += (int)(maxHealth * percentageAmount);
-        if (health > maxHealth)
-        {
-            health = maxHealth;
-        }
     }
 
     public void CheckEquipment()
@@ -140,12 +129,10 @@ public class PlayerData : ScriptableObject
     public void ResetStats()
     {
         speed = defaultSpeed;
-        health = defaultHealth;
+        // health = defaultHealth;
         maxHealth = defaultMaxHealth;
         defensePercentage = 0;
         weaponList = new List<InventorySlot>();
         abilityInventory.ClearInventory();
-
-        // resistanceBonus.Clear();
     }
 }

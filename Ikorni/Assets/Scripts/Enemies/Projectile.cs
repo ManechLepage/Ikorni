@@ -44,6 +44,12 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log("Collision detected", gameObject);
+        if (other.gameObject.GetComponent<Player>() != null)
+        {
+            Debug.Log("Player hit", gameObject);
+            other.gameObject.GetComponent<Player>().TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 

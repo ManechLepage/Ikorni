@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
+    public int health;
     public PlayerData playerData;
     public MouseItem mouseItem = new MouseItem();
     public InventoryObject inventory;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        health = playerData.maxHealth;
         UpdateHealthBar();
     }
     
@@ -32,11 +34,6 @@ public class Player : MonoBehaviour
                 inventory.AddItem(_item, 1);
                 Destroy(other.gameObject);
             }
-        }
-        if (other.CompareTag("bullet")){
-            Debug.Log("hit");
-            
-            // hp -= other.GetComponent<Projectile>().damage;
         }
     }
     public void CollideTree()
@@ -71,13 +68,22 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        playerData.health -= damage;
+        health -= damage;
         UpdateHealthBar();
     }
 
     private void UpdateHealthBar()
     {
-        healthText.text = $"{playerData.health.ToString()} / {playerData.maxHealth.ToString()}";
-        healthBar.localScale = new Vector3(playerData.health / playerData.maxHealth, 1, 1);
+        healthText.text = $"{health.ToString()} / {playerData.maxHealth.ToString()}";
+        healthBar.localScale = new Vector3((float)health / (float)playerData.maxHealth, 1, 1);
+    }
+
+    public void HealPlayerByPercentage(float percentageAmount)
+    {
+        health += (int)(playerData.maxHealth * percentageAmount);
+        if (health > playerData.maxHealth)
+        {
+            health = playerData.maxHealth;
+        }
     }
 }

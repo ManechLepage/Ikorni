@@ -106,4 +106,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rarity: 0.4
-  isBorderStructure: 1
+  breakable: 0
